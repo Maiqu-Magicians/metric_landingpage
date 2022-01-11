@@ -1,24 +1,15 @@
-# metric-landingpage
+# 麦趣metric主页
 
-## Project setup
-```
-npm install
-```
+## 环境
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+确保你有yarn：
 
-### Compiles and minifies for production
-```
-npm run build
-```
+    npm i -g yarn 
 
-### Lints and fixes files
-```
-npm run lint
-```
+第一次clone之后，下载依赖：
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+    yarn install
+
+启动dev服务器
+
+    yarn serve
