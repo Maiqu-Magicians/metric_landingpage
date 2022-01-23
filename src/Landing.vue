@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Backgd style="padding:0;margin=0 auto" />
+    <Backgd />
 
     <!-- <el-container> -->
     <!-- <el-header> -->

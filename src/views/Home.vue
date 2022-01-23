@@ -8,12 +8,28 @@
         <span class="home-bottom-text">{{ introduction }}</span>
       </div>
       <div class="main-card">
-        <el-row class="main-card-row" justify="center">
-          <el-col :span="8"></el-col>
+        <el-row class="main-card-row" justify="space-around">
+          <el-col :span="8">
+            <div class="main-card-content">
+              <img src="@/assets/icons8-octahedron.webp" />
+              <span>测评大厅</span>
+              <router-link to="/">
+                <img src="@/assets/btn_login.webp" />
+              </router-link>
+            </div>
+          </el-col>
           <el-col :span="1">
             <div class="line" />
           </el-col>
-          <el-col :span="8"></el-col>
+          <el-col :span="8">
+            <div class="main-card-content">
+              <img src="@/assets/icons8-bot.webp" />
+              <span>咨询AI</span>
+              <router-link to="/">
+                <img src="@/assets/btn_login(1).webp" />
+              </router-link>
+            </div>
+          </el-col>
         </el-row>
       </div>
     </el-col>
@@ -55,6 +71,42 @@ export default defineComponent({
   border-radius: 30px 30px 0px 0px;
 }
 
+.main-card-content {
+  /* width: 40%; */
+  /* height: 40%; */
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  -webkit-transform: translate(-50%, -50%);
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+.main-card-content > * {
+  position: relative;
+  padding: 0;
+  margin: 3vh auto;
+}
+
+.main-card-content > span {
+  text-align: center;
+  width: 130px;
+  height: 40px;
+  font-size: 30px;
+  font-family: OPPOSans;
+  font-weight: 600;
+  line-height: 47px;
+  color: #ffffff;
+  opacity: 1;
+}
+
 .main-card-row {
   /* display:; */
   position: absolute;
@@ -72,7 +124,7 @@ export default defineComponent({
   font-size: 36px;
   font-family: OPPOSans;
   font-weight: 800;
-  line-height: 8vh;
+  line-height: 10vh;
   color: #ffffff;
   opacity: 1;
 }
@@ -86,7 +138,7 @@ export default defineComponent({
   font-size: 16px;
   font-family: OPPOSans;
   font-weight: 500;
-  line-height: 4vh;
+  line-height: 6vh;
   color: #ffffff;
   opacity: 1;
 }
