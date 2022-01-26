@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56.957" height="71.027" viewBox="0 0 56.957 71.027">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g id="icons8-bot" transform="translate(-8 -3)">
+    <path id="路径_18" data-name="路径 18" class="cls-1" d="M36.479,56.479c-12.429,0-19.746-4.386-23.7-8.065A15.128,15.128,0,0,1,8,37.366V36.01A8.019,8.019,0,0,1,16.01,28H56.948a8.019,8.019,0,0,1,8.01,8.01v1.356a15.126,15.126,0,0,1-4.784,11.048C56.225,52.093,48.908,56.479,36.479,56.479Z" transform="translate(0 17.548)"/>
+    <line id="直线_6" data-name="直线 6" class="cls-2" y2="4.45" transform="translate(36.479 5.5)"/>
+    <path id="路径_19" data-name="路径 19" class="cls-1" d="M49.268,7H19.01A8.019,8.019,0,0,0,11,15.01V31.029a8.019,8.019,0,0,0,8.01,8.01H49.268a8.019,8.019,0,0,0,8.01-8.01V15.01A8.019,8.019,0,0,0,49.268,7ZM26.129,26.579a4.45,4.45,0,1,1,4.45-4.45A4.449,4.449,0,0,1,26.129,26.579Zm16.019,0a4.45,4.45,0,1,1,4.45-4.45A4.449,4.449,0,0,1,42.149,26.579Z" transform="translate(2.34 1.17)"/>
+  </g>
+</svg>

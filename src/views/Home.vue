@@ -2,20 +2,22 @@
   <el-row style="height: 90vh" justify="center">
     <el-col :span="4" />
     <el-col :span="15">
-      <div style="height: 30vh">
+      <div style="height: 36vh">
         <div class="home-top-text">Hi~</div>
         <div class="home-top-text">我们是麦趣</div>
-        <span class="home-bottom-text">{{ introduction }}</span>
+        <span class="home-bottom-text" style="white-space: pre-wrap">{{
+          introduction
+        }}</span>
       </div>
       <div class="main-card">
         <el-row class="main-card-row" justify="space-around">
           <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
-              <img src="@/assets/icons8-octahedron.webp" />
+              <img src="@/assets/icons8-octahedron.svg" />
               <span>测评大厅</span>
               <router-link to="/">
-                <img src="@/assets/btn_login.webp" />
+                <img src="@/assets/btn_login.svg" />
               </router-link>
             </div>
           </el-col>
@@ -26,10 +28,10 @@
           </el-col>
           <el-col :span="8">
             <div class="main-card-content">
-              <img src="@/assets/icons8-bot.webp" />
+              <img src="@/assets/icons8-bot.svg" />
               <span>咨询AI</span>
               <router-link to="/">
-                <img src="@/assets/btn_login(1).webp" />
+                <img src="@/assets/btn_login(1).svg" />
               </router-link>
             </div>
           </el-col>
@@ -49,10 +51,7 @@ export default defineComponent({
   data() {
     return {
       introduction:
-        "麦趣测评，是一款游戏化的职业竞争力在线自我测评系统，\
-        服务于以大学生群体为主的青年求职者。\
-        「游戏化」是麦趣测评想要重点打造的产品特质，\
-        也是有别于市场常见的职业性格测试应用的差异化特征。",
+        "麦趣，集游戏化行为测评GBA和AI心理轻咨询于一体，\n助力青年求职者在不确定的日子里多一些向内探索。",
     };
   },
 });
@@ -61,48 +60,46 @@ export default defineComponent({
 <style scoped>
 .line {
   width: 0px;
-  height: 45vh;
+  height: 35vh;
   border: 1px solid #ffffff;
   opacity: 1;
   position: relative;
   left: 50%;
   top: 50%;
-
-  /* transform: translate(-50%, 0%); */
 }
 
 .main-card {
   width: 100%;
   height: 90vh;
-  background: rgba(255, 255, 255, 0.19);
-  backdrop-filter: saturate(100%) blur(30px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(100%) blur(40px);
   opacity: 1;
-  border-radius: 30px 30px 0px 0px;
+  border-radius: 70px 70px 0px 0px;
   overflow: hidden;
 }
 
 .main-card-content {
-  /* width: 40%; */
+  position: relative;
+  width: 60%;
   /* height: 40%; */
   flex: 1;
   display: flex;
   flex-flow: column;
   left: 50%;
-  top: 50%;
+  top: 40%;
 
   transform: translate(-50%, -80%);
 
   /* -webkit-transform: translate(-50%, -50%); */
   overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0;
+  /* margin: 0 auto; */
+  /* padding: 0 0; */
 }
 
 .main-card-content > * {
   position: relative;
   padding: 0;
-  margin: 3vh auto;
+  margin: 2.5vh auto;
 }
 
 .main-card-content > span {
@@ -131,10 +128,10 @@ export default defineComponent({
   right: 0;
   /* margin: 0 auto; */
   height: 7vh;
-  font-size: 36px;
+  font-size: 5vh;
   font-family: OPPOSans;
-  font-weight: 800;
-  line-height: 10vh;
+  font-weight: 900;
+  line-height: 13vh;
   color: #ffffff;
   opacity: 1;
 }
@@ -143,11 +140,12 @@ export default defineComponent({
   position: relative;
   text-align: left;
   right: 0;
-  /* margin: 0 auto; */
-  height: 4vh;
-  font-size: 16px;
+  margin: 0 auto;
+  top: 14%;
+  height: 8vh;
+  font-size: 2.1vh;
   font-family: OPPOSans;
-  font-weight: 500;
+  font-weight: 530;
   line-height: 6vh;
   color: #ffffff;
   opacity: 1;
