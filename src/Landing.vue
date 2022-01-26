@@ -1,17 +1,7 @@
 <template>
-  <div>
-    <Backgd />
-
-    <!-- <el-container> -->
-    <!-- <el-header> -->
-    <MainHeader />
-    <!-- </el-header> -->
-
-    <!-- <el-main class="landing-main"> -->
-    <router-view />
-    <!-- </el-main> -->
-    <!-- </el-container> -->
-  </div>
+  <Backgd />
+  <MainHeader />
+  <router-view />\
 </template>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 90vh" justify="center">
-    <el-col :span="1" />
-    <el-col :span="18">
+    <el-col :span="4" />
+    <el-col :span="15">
       <div style="height: 30vh">
         <div class="home-top-text">Hi~</div>
         <div class="home-top-text">我们是麦趣</div>
@@ -9,6 +9,7 @@
       </div>
       <div class="main-card">
         <el-row class="main-card-row" justify="space-around">
+          <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
               <img src="@/assets/icons8-octahedron.webp" />
@@ -18,8 +19,10 @@
               </router-link>
             </div>
           </el-col>
-          <el-col :span="1">
-            <div class="line" />
+          <el-col :span="2">
+            <div>
+              <div class="line" />
+            </div>
           </el-col>
           <el-col :span="8">
             <div class="main-card-content">
@@ -30,10 +33,11 @@
               </router-link>
             </div>
           </el-col>
+          <el-col :span="1" />
         </el-row>
       </div>
     </el-col>
-    <el-col :span="1" />
+    <el-col :span="4" />
   </el-row>
 </template>
 
@@ -60,15 +64,21 @@ export default defineComponent({
   height: 45vh;
   border: 1px solid #ffffff;
   opacity: 1;
+  position: relative;
+  left: 50%;
+  top: 50%;
+
+  /* transform: translate(-50%, 0%); */
 }
 
 .main-card {
   width: 100%;
-  height: 60vh;
+  height: 90vh;
   background: rgba(255, 255, 255, 0.19);
   backdrop-filter: saturate(100%) blur(30px);
   opacity: 1;
   border-radius: 30px 30px 0px 0px;
+  overflow: hidden;
 }
 
 .main-card-content {
@@ -80,9 +90,9 @@ export default defineComponent({
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
 
-  -webkit-transform: translate(-50%, -50%);
+  /* -webkit-transform: translate(-50%, -50%); */
   overflow: hidden;
   position: relative;
   margin: 0 auto;

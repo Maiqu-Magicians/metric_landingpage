@@ -1,7 +1,7 @@
 <template>
   <div class="thisheader">
     <el-row justify="center" style="height: 100%">
-      <el-col :span="1" />
+      <el-col :span="4" />
       <el-col :span="3">
         <div class="topbar-title">
           <router-link to="/" class="topbar-title-link"
@@ -11,16 +11,20 @@
       </el-col>
       <el-col :span="1">
         <div class="topbar-buy">
-          <span>产品</span>
+          <router-link to="/personalCenter/product" class="topbar-prd-link">
+            产品
+          </router-link>
         </div>
       </el-col>
       <el-col :span="1">
         <div class="topbar-buy">
-          <span>价格</span>
+          <router-link to="/personalCenter" class="topbar-prd-link"
+            >价格</router-link
+          >
         </div>
       </el-col>
-      <el-col :span="13" />
-      <el-col :span="1" />
+      <el-col :span="7" />
+      <el-col :span="4" />
     </el-row>
   </div>
 </template>
@@ -44,6 +48,19 @@ export default defineComponent({});
   text-align: left;
   display: block;
   line-height: 200%;
+}
+.topbar-prd-link {
+  height: 10vh;
+  font-size: 2.5vh;
+  font-family: OPPOSans;
+  font-weight: 600;
+  line-height: 2vh;
+  color: #ffffff;
+  opacity: 1;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  line-height: 230%;
 }
 
 .topbar-title {

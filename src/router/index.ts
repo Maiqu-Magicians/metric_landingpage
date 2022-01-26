@@ -4,6 +4,9 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import personalCenter from "../views/PersonalCenter.vue";
+import Info from "../views/PersonalCenter/Info.vue";
+import Product from "../views/PersonalCenter/Products.vue";
+import Record from "../views/PersonalCenter/Record.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +28,20 @@ const routes: Array<RouteRecordRaw> = [
     path: "/personalCenter",
     name: "Personal Center",
     component: personalCenter,
+    children: [
+      {
+        path: "info",
+        component: Info,
+      },
+      {
+        path: "records",
+        component: Record,
+      },
+      {
+        path: "products",
+        component: Product,
+      },
+    ],
   },
 ];
 
