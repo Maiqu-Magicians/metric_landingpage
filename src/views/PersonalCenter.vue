@@ -6,7 +6,7 @@
         <div class="left-card-content">
           <div class="head-icon">
             <img
-              src="@/assets/icons8-user@2x.webp"
+              src="@/assets/icons8-user.svg"
               style="
                 position: relative;
                 width: 30%;
@@ -17,9 +17,15 @@
             />
           </div>
           <span>用户名</span>
-          <el-link to="/"> <div class="active-bottom"></div> </el-link>
-          <el-link to="/"> </el-link>
-          <el-link to="/"></el-link>
+          <router-link to="/personalCenter/info" class="btn"
+            >账号信息</router-link
+          >
+          <router-link to="/personalCenter/records" class="btn"
+            >测评记录</router-link
+          >
+          <router-link to="/personalCenter/products" class="btn"
+            >已购产品</router-link
+          >
         </div>
       </div>
     </el-col>
@@ -70,9 +76,67 @@ export default defineComponent({
   /* filter: blur(30px); */
   opacity: 1;
 }
+
+.btn {
+  width: 64px;
+  height: 21px;
+  font-size: 16px;
+  font-family: OPPOSans;
+  font-weight: 400;
+  line-height: 21px;
+  color: #ffffff;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.btn::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
+}
+
+.router-link-exact-active {
+  width: 189px;
+  height: 62px;
+  background: rgba(65, 153, 255, 0.39);
+  box-shadow: 0px 10px 20px rgba(83, 152, 247, 0.4);
+  opacity: 1;
+  border-radius: 31px;
+
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+  /* line-height: %; */
+}
+
+.router-link-exact-active::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
+}
+
+.left-card-content > * {
+  position: relative;
+  padding: 0;
+  margin: 2.5vh auto;
+}
+
+.left-card-content > span {
+  width: 54px;
+  height: 24px;
+  font-size: 18px;
+  font-family: OPPOSans;
+  font-weight: 800;
+  line-height: 24px;
+  color: #ffffff;
+  opacity: 1;
+}
+
 .left-card-content {
   position: relative;
-  width: 40%;
+  width: 100%;
   height: 80%;
   flex: 1;
   display: flex;
@@ -80,7 +144,7 @@ export default defineComponent({
   left: 50%;
   top: 50%;
 
-  transform: translate(-100%, -50%);
+  transform: translate(-50%, -50%);
 
   /* -webkit-transform: translate(-50%, -50%); */
   overflow: hidden;
