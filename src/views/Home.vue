@@ -14,10 +14,10 @@
           <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
-              <img src="@/assets/icons8-octahedron.svg" />
+              <img src="@/assets/icons8-octahedron.svg" style="width: 30%" />
               <span>测评大厅</span>
-              <router-link to="/">
-                <img src="@/assets/btn_login.svg" />
+              <router-link to="/" style="width: 40%">
+                <img src="@/assets/btn_login.svg" style="width: 100%" />
               </router-link>
             </div>
           </el-col>
@@ -28,10 +28,10 @@
           </el-col>
           <el-col :span="8">
             <div class="main-card-content">
-              <img src="@/assets/icons8-bot.svg" />
-              <span>咨询AI</span>
-              <router-link to="/">
-                <img src="@/assets/btn_login(1).svg" />
+              <img src="@/assets/icons8-bot.svg" style="width: 25%" />
+              <span>AI咨询</span>
+              <router-link to="/" style="width: 40%">
+                <img src="@/assets/btn_login(1).svg" style="width: 100%" />
               </router-link>
             </div>
           </el-col>
@@ -80,19 +80,19 @@ export default defineComponent({
 
 .main-card-content {
   position: relative;
-  width: 60%;
+  width: 100%;
   /* height: 40%; */
   flex: 1;
   display: flex;
   flex-flow: column;
   left: 50%;
-  top: 40%;
+  top: 45%;
 
   transform: translate(-50%, -80%);
 
   /* -webkit-transform: translate(-50%, -50%); */
   overflow: hidden;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   /* padding: 0 0; */
 }
 
@@ -104,9 +104,9 @@ export default defineComponent({
 
 .main-card-content > span {
   text-align: center;
-  width: 130px;
+  /* width: 130px; */
   height: 40px;
-  font-size: 30px;
+  font-size: 5vh;
   font-family: OPPOSans;
   font-weight: 600;
   line-height: 47px;

@@ -24,6 +24,16 @@
         </div>
       </el-col>
       <el-col :span="7" />
+      <el-col :span="1">
+        <router-link to="/register" style="text-decoration: none">
+          <div class="btn-signup"><span>注册</span></div>
+        </router-link>
+      </el-col>
+      <el-col :span="2">
+        <router-link to="/login" style="text-decoration: none">
+          <div class="btn-login"><span>登录</span></div>
+        </router-link>
+      </el-col>
       <el-col :span="4" />
     </el-row>
   </div>
@@ -92,5 +102,49 @@ export default defineComponent({});
   width: 100vw;
   background: rgba(255, 255, 255, 0.39);
   backdrop-filter: saturate(100%) blur(20px);
+}
+
+.btn-signup {
+  position: relative;
+  margin: 0 auto;
+  top: 1.2vh;
+  width: 4vw;
+  height: 3vh;
+  border: 2px solid #ffffff;
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.btn-signup > span {
+  position: relative;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 100%;
+  line-height: 30%;
+  top: 17%;
+}
+
+.btn-login {
+  position: relative;
+  margin: 0 auto;
+  top: 1.2vh;
+  width: 4vw;
+  height: 3vh;
+  background-color: rgba(65, 153, 255, 0.39);
+  border: 2px rgba(65, 153, 255, 0.39);
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+  opacity: 1;
+}
+
+.btn-login > span {
+  position: relative;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 100%;
+  top: 17%;
+  line-height: 50%;
 }
 </style>
