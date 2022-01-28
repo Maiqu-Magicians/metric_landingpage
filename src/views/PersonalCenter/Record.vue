@@ -16,8 +16,19 @@
   </div>
   <div class="right-card-bottom">
     <div class="card-bottom-content">
-      <span class="test_title">测评记录</span>
-      <div class="table"></div>
+      <span class="test-title">测评记录</span>
+      <div class="table">
+        <tr>
+          <th>测评时间</th>
+          <th>测评名称</th>
+          <th>测评详情</th>
+        </tr>
+        <tr v-for="i in test_records" :key="i">
+          <td class="time-spe">{{ i.time }}</td>
+          <td class="name-spe">{{ i.name }}</td>
+          <td class="status-spe">{{ i.status }}</td>
+        </tr>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +40,9 @@ export default defineComponent({
   name: "Record",
   mounted() {
     this.latest_test = "啦啦啦";
+    this.test_records[0].name = "1name";
+    this.test_records[0].time = "1970-1-1";
+    this.test_records[0].status = "status";
   },
   data() {
     return {
@@ -55,12 +69,12 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 80%;
+  width: 90%;
   height: 80%;
   position: relative;
   margin: 0 auto;
-  top: 5vh;
-  border: 1px solid;
+  top: 3.5vh;
+  /* border: 1px solid; */
 }
 
 .right-card-top {
@@ -130,5 +144,34 @@ export default defineComponent({
   left: 50%;
   right: 50%;
   transform: translate(-50%, 75%);
+}
+
+.table {
+  position: relative;
+  top: 3vh;
+  /* border: 1px solid white; */
+}
+
+.table > tr > * {
+  font-size: 2.3vh;
+  color: #ffffff;
+  text-align: center;
+  font-weight: normal;
+}
+
+.time-spe {
+  width: 25%;
+}
+
+.name-spe {
+  width: 60%;
+}
+
+.test-title {
+  font-size: 2.5vh;
+  color: #ffffff;
+  position: relative;
+  left: 3%;
+  font-weight: bold;
 }
 </style>
