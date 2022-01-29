@@ -11,6 +11,7 @@ import Loginwithcode from "../views/Loginwithcode.vue";
 import SetPassword from "../views/SetPassword.vue";
 import FirstSet from "../views/FirstSet.vue";
 import FindPassword from "../views/FindPassword.vue";
+import AllProducts from "../views/Products.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -47,6 +48,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/setPassword",
     name: "SetPassword",
     component: SetPassword,
+  },
+  {
+    path: "/products",
+    name: "AllProducts",
+    component: AllProducts,
   },
   {
     path: "/personalCenter",
