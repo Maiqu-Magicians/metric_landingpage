@@ -7,6 +7,10 @@ import personalCenter from "../views/PersonalCenter.vue";
 import Info from "../views/PersonalCenter/Info.vue";
 import Product from "../views/PersonalCenter/Products.vue";
 import Record from "../views/PersonalCenter/Record.vue";
+import Loginwithcode from "../views/Loginwithcode.vue";
+import SetPassword from "../views/SetPassword.vue";
+import FirstSet from "../views/FirstSet.vue";
+import FindPassword from "../views/FindPassword.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -23,6 +27,26 @@ const routes: Array<RouteRecordRaw> = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/findPassword",
+    name: "FindPassword",
+    component: FindPassword,
+  },
+  {
+    path: "/firstSet",
+    name: "FirstSet",
+    component: FirstSet,
+  },
+  {
+    path: "/loginwithcode",
+    name: "LoginWithCode",
+    component: Loginwithcode,
+  },
+  {
+    path: "/setPassword",
+    name: "SetPassword",
+    component: SetPassword,
   },
   {
     path: "/personalCenter",

@@ -45,7 +45,7 @@
                       border: 5px white;
                     "
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm()"
                     >获取验证码</el-button
                   >
                   <div
@@ -66,7 +66,7 @@
                     type="primary"
                     style="width: 70%; height: 60px"
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm"
                     >开始使用</el-button
                   >
                 </el-form-item>
@@ -100,7 +100,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "Home",
+  name: "Loginwithcode",
   data() {
     return {
       ruleForm: {
@@ -114,16 +114,8 @@ export default defineComponent({
     };
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert("submit!");
-          this.$router.push("./login");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    submitForm() {
+      console.log("login with code");
     },
   },
 });

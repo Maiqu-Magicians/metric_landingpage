@@ -39,7 +39,7 @@
                       border: 5px white;
                     "
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm()"
                     >获取验证码</el-button
                   >
                   <div
@@ -78,7 +78,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "Home",
+  name: "FindPassword",
   data() {
     return {
       ruleForm: {
@@ -92,16 +92,8 @@ export default defineComponent({
     };
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert(this.tel);
-          this.$router.push("./login");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    submitForm() {
+      console.log("findPassword");
     },
   },
 });

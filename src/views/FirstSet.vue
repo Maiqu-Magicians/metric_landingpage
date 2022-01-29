@@ -35,7 +35,7 @@
                     type="primary"
                     style="width: 100%; height: 60px"
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm()"
                     >开始使用</el-button
                   >
                 </el-form-item>
@@ -52,7 +52,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "Home",
+  name: "FirstSet",
   data() {
     return {
       ruleForm: {
@@ -70,16 +70,8 @@ export default defineComponent({
     };
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert(this.newPassword);
-          this.$router.push("./login");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    submitForm() {
+      console.log("first_set");
     },
   },
 });

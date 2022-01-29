@@ -46,7 +46,7 @@
                     type="primary"
                     style="width: 100%; height: 60px"
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm()"
                     >登陆</el-button
                   >
                 </el-form-item>
@@ -80,7 +80,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "Home",
+  name: "Login",
   data() {
     return {
       ruleForm: {
@@ -94,16 +94,8 @@ export default defineComponent({
     };
   },
   methods: {
-    submitForm(formName: any) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert("submit!");
-          this.$router.push("./login");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    submitForm() {
+      console.log("login");
     },
   },
 });
