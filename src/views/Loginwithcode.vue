@@ -3,9 +3,14 @@
     <el-col :span="1" />
     <el-col :span="18">
       <div class="main-card">
-        <div class="home-top-text">你好呀，新朋友~</div>
-        <el-row class="main-card-row" justify="space-around">
-          <el-col :span="11">
+        <div class="home-top-text">欢迎来到麦趣</div>
+        <el-row
+          class="main-card-row"
+          justify="space-around"
+          style="postion: relative; top: 15vh"
+        >
+          <el-col :span="1" />
+          <el-col :span="8">
             <div class="main-card-content">
               <button @click="this.$router.push('./login')">微信登陆</button>
             </div>
@@ -15,7 +20,7 @@
             <span class="small-ch">或</span>
             <div class="line" />
           </el-col>
-          <el-col :span="11">
+          <el-col :span="8">
             <div class="main-card-content-right">
               <el-form
                 :model="ruleForm"
@@ -27,51 +32,49 @@
                 <el-form-item prop="tel">
                   <el-input
                     placeholder="账号"
-                    style="width: 70%; height: 60px"
                     v-model="ruleForm.tel"
                   ></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
                   <el-input
-                    style="width: 45%; height: 60px"
+                    style="width: 55%; height: 60px"
                     placeholder="验证码"
                     v-model="ruleForm.code"
                   ></el-input>
                   <el-button
                     style="
-                      width: 25%;
+                      position: relative;
+                      left: 10%;
+                      width: 35%;
                       height: 60px;
                       background-color: #55585a + 7a;
                       border: 5px white;
                     "
                     round
-                    @click="submitForm()"
-                    >获取验证码</el-button
+                    @click="getCode()"
+                    :disabled="totalTime < 60"
+                    >{{ btn_content }}</el-button
                   >
-                  <div
-                    style="
-                      border-style: solid;
-                      height: 60px;
-                      border-radius: 10px;
-                      border-color: #ffffff;
-                      color: white;
-                      text-align: center;
-                    "
-                  >
-                    60s后重新发送
-                  </div>
                 </el-form-item>
+
                 <el-form-item>
                   <el-button
                     type="primary"
-                    style="width: 70%; height: 60px"
+                    style="width: 100%; height: 60px"
                     round
-                    @click="submitForm"
-                    >开始使用</el-button
+                    @click="submitForm()"
+                    >登陆</el-button
                   >
                 </el-form-item>
               </el-form>
-              <div>
+              <div
+                style="
+                  display: flex;
+                  flex: 1;
+                  flex-flow: row nowarp;
+                  justify-content: space-between;
+                "
+              >
                 <el-link
                   style="
                     margin-left: 100px;
@@ -79,17 +82,13 @@
                     font-weight: bold;
                     color: #ffffff;
                   "
-                  href="https://element.eleme.io"
-                  target="_blank"
-                  >短信验证码登陆</el-link
-                >
-                <el-link
-                  style="margin-left: 60px; font-weight: bold; color: #ffffff"
+                  href="/register"
                   >还没账号？马上注册</el-link
                 >
               </div>
             </div>
           </el-col>
+          <el-col :span="1" />
         </el-row>
       </div>
     </el-col>
@@ -99,23 +98,37 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
-  name: "Loginwithcode",
+  name: "Login",
   data() {
     return {
+      btn_content: "获取验证码",
+      totalTime: 60,
       ruleForm: {
         tel: "",
-        code: "",
+        password: "",
       },
       rules: {
         tel: [{ required: true, message: "请输入手机号码", trigger: "blur" }],
-        code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
     };
   },
   methods: {
     submitForm() {
-      console.log("login with code");
+      console.log("login");
+    },
+    getCode() {
+      let clock = window.setInterval(() => {
+        this.btn_content = this.totalTime + "s后重新发送";
+        this.totalTime--;
+        if (this.totalTime < 0) {
+          this.totalTime = 60;
+          this.btn_content = "重新发送验证码";
+          window.clearInterval(clock);
+        }
+      }, 1000);
     },
   },
 });
@@ -123,21 +136,26 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .line {
+  position: relative;
   width: 0px;
-  height: 30vh;
+  height: 27vh;
+  left: 50%;
   border: 1px solid #ffffff;
   text-align: center;
   opacity: 1;
 }
 /* 小字的样式 */
 .small-ch {
+  position: relative;
   color: #ffffff;
   height: 3vh;
-  font-size: 5px;
+  font-size: 2.5vh;
+  margin: 0 auto;
+  left: 40%;
 }
 
 .main-card {
-  margin-top: 5vh;
+  margin-top: 7vh;
   width: 100%;
   height: 80vh;
   background: rgba(255, 255, 255, 0.19);
@@ -164,28 +182,28 @@ export default defineComponent({
   padding: 0 0;
 }
 
-/* 信息输入区样式 */
 .main-card-content-right {
-  /* width: 40%; */
+  width: 100%;
   /* height: 40%; */
+  position: relative;
   flex: 1;
   display: flex;
   flex-flow: column;
-  left: 25%;
-  top: 50%;
+  overflow: hidden;
+  justify-content: center;
+  // align-items:flex-start;
+  left: 40%;
+  top: 45%;
 
   transform: translate(-50%, -50%);
 
   -webkit-transform: translate(-50%, -50%);
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0;
 }
 
 /* 输入框样式 */
 ::v-deep .el-input__inner {
   height: 60px;
+  width: 1800px;
   border-radius: 10px;
   color: #4d1515;
   opacity: 0.5;
@@ -200,7 +218,7 @@ export default defineComponent({
 
 .main-card-content > * {
   position: relative;
-  padding: 0;
+  // padding: 0;
   margin: 3vh auto;
 }
 
@@ -252,11 +270,11 @@ export default defineComponent({
   text-align: center;
   right: 0;
   /* margin: 0 auto; */
-  height: 7vh;
-  font-size: 36px;
+  height: 3vh;
+  font-size: 4.2vh;
   font-family: OPPOSans;
   font-weight: 800;
-  line-height: 20vh;
+  line-height: 15vh;
   color: #ffffff;
   opacity: 1;
 }

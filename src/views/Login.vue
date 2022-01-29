@@ -4,7 +4,12 @@
     <el-col :span="18">
       <div class="main-card">
         <div class="home-top-text">欢迎来到麦趣</div>
-        <el-row class="main-card-row" justify="space-around">
+        <el-row
+          class="main-card-row"
+          justify="space-around"
+          style="postion: relative; top: 15vh"
+        >
+          <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
               <button @click="this.$router.push('./login')">微信登陆</button>
@@ -38,8 +43,26 @@
                     show-password
                   ></el-input>
                 </el-form-item>
-                <div class="small-ch" style="margin-left: 100px">
-                  忘记密码？
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-flow: row nowarp;
+                    justify-content: space-end;
+                    width: 100%;
+                  "
+                >
+                  <el-link
+                    style="
+                      position: relative;
+                      left: 100px;
+                      height: 3vh;
+                      font-weight: bold;
+                      color: #ffffff;
+                    "
+                  >
+                    忘记密码？
+                  </el-link>
                 </div>
                 <el-form-item>
                   <el-button
@@ -51,7 +74,14 @@
                   >
                 </el-form-item>
               </el-form>
-              <div>
+              <div
+                style="
+                  display: flex;
+                  flex: 1;
+                  flex-flow: row nowarp;
+                  justify-content: space-between;
+                "
+              >
                 <el-link
                   style="
                     margin-left: 100px;
@@ -59,17 +89,23 @@
                     font-weight: bold;
                     color: #ffffff;
                   "
-                  href="https://element.eleme.io"
-                  target="_blank"
+                  href="/loginwithcode"
                   >短信验证码登陆</el-link
                 >
                 <el-link
-                  style="margin-left: 60px; font-weight: bold; color: #ffffff"
+                  style="
+                    position: relative;
+                    margin-right: 0%;
+                    font-weight: bold;
+                    color: #ffffff;
+                  "
+                  href="/register"
                   >还没账号？马上注册</el-link
                 >
               </div>
             </div>
           </el-col>
+          <el-col :span="1" />
         </el-row>
       </div>
     </el-col>
@@ -103,23 +139,28 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .line {
+  position: relative;
   width: 0px;
-  height: 30vh;
+  height: 27vh;
+  left: 50%;
   border: 1px solid #ffffff;
   text-align: center;
   opacity: 1;
 }
 /* 小字的样式 */
 .small-ch {
+  position: relative;
   color: #ffffff;
   height: 3vh;
-  font-size: 5px;
+  font-size: 2.5vh;
+  margin: 0 auto;
+  left: 40%;
 }
 
 .main-card {
-  margin-top: 5vh;
+  margin-top: 7vh;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background: rgba(255, 255, 255, 0.19);
   backdrop-filter: saturate(100%) blur(30px);
   opacity: 1;
@@ -145,40 +186,21 @@ export default defineComponent({
 }
 
 .main-card-content-right {
-  /* width: 40%; */
+  width: 100%;
   /* height: 40%; */
+  position: relative;
   flex: 1;
   display: flex;
   flex-flow: column;
-  left: 50%;
-  top: 50%;
+  overflow: hidden;
+  justify-content: center;
+  // align-items:flex-start;
+  left: 40%;
+  top: 45%;
 
   transform: translate(-50%, -50%);
 
   -webkit-transform: translate(-50%, -50%);
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0;
-}
-
-/* 信息输入区样式 */
-.main-card-content-right {
-  /* width: 40%; */
-  /* height: 40%; */
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-  left: 5%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  -webkit-transform: translate(-50%, -50%);
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0;
 }
 
 /* 输入框样式 */
@@ -199,7 +221,7 @@ export default defineComponent({
 
 .main-card-content > * {
   position: relative;
-  padding: 0;
+  // padding: 0;
   margin: 3vh auto;
 }
 
@@ -251,11 +273,11 @@ export default defineComponent({
   text-align: center;
   right: 0;
   /* margin: 0 auto; */
-  height: 7vh;
-  font-size: 36px;
+  height: 3vh;
+  font-size: 4.2vh;
   font-family: OPPOSans;
   font-weight: 800;
-  line-height: 20vh;
+  line-height: 15vh;
   color: #ffffff;
   opacity: 1;
 }
