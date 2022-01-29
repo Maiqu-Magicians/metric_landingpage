@@ -60,6 +60,7 @@
                       font-weight: bold;
                       color: #ffffff;
                     "
+                    href="/findPassword"
                   >
                     忘记密码？
                   </el-link>

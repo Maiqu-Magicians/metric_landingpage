@@ -17,7 +17,7 @@
                 <el-form-item prop="tel">
                   <el-input
                     type="password"
-                    style="width: 80%; height: 60px"
+                    style="width: 100%; height: 60px"
                     placeholder="账号绑定的手机号码"
                     v-model="ruleForm.tel"
                     show-password
@@ -26,35 +26,25 @@
                 <el-form-item prop="password">
                   <el-input
                     type="password"
-                    style="width: 50%; height: 60px"
+                    style="width: 46%; height: 60px"
                     placeholder="验证码"
                     v-model="ruleForm.code"
                     show-password
                   ></el-input>
                   <el-button
                     style="
-                      width: 22%;
+                      position: relative;
+                      left: 4%;
+                      width: 27%;
                       height: 60px;
                       background-color: #55585a + 7a;
                       border: 5px white;
                     "
                     round
-                    @click="submitForm()"
-                    >获取验证码</el-button
+                    @click="getCode()"
+                    :disabled="totalTime < 60"
+                    >{{ btn_content }}</el-button
                   >
-                  <div
-                    style="
-                      width: 24%;
-                      border-style: solid;
-                      height: 60px;
-                      border-radius: 10px;
-                      border-color: #ffffff;
-                      color: white;
-                      text-align: center;
-                    "
-                  >
-                    60s后重新发送
-                  </div>
                 </el-form-item>
                 <el-form-item>
                   <el-button
@@ -62,7 +52,7 @@
                     style="width: 80%; height: 60px"
                     round
                     @click="submitForm('ruleForm')"
-                    >开始使用</el-button
+                    >重置密码</el-button
                   >
                 </el-form-item>
               </el-form>
@@ -81,6 +71,8 @@ export default defineComponent({
   name: "FindPassword",
   data() {
     return {
+      btn_content: "获取验证码",
+      totalTime: 60,
       ruleForm: {
         tel: "",
         code: "",
@@ -94,6 +86,17 @@ export default defineComponent({
   methods: {
     submitForm() {
       console.log("findPassword");
+    },
+    getCode() {
+      let clock = window.setInterval(() => {
+        this.btn_content = this.totalTime + "s后重新发送";
+        this.totalTime--;
+        if (this.totalTime < 0) {
+          this.totalTime = 60;
+          this.btn_content = "重新发送验证码";
+          window.clearInterval(clock);
+        }
+      }, 1000);
     },
   },
 });
