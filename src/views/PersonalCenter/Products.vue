@@ -1,7 +1,7 @@
 <template>
   <div class="right-card">
     <div class="right-card-content">
-      <div v-for="i in product_list" class="product-card" :key="i">
+      <div v-for="i of product_list" class="product-card" :key="i.name">
         <div
           :style="{
             position: 'relative',

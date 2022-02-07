@@ -23,7 +23,7 @@
           <th>测评名称</th>
           <th>测评详情</th>
         </tr>
-        <tr v-for="i in test_records" :key="i">
+        <tr v-for="i in test_records" :key="i.name">
           <td class="time-spe">{{ i.time }}</td>
           <td class="name-spe">{{ i.name }}</td>
           <td class="status-spe">{{ i.status }}</td>

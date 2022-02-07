@@ -22,7 +22,7 @@ export default defineComponent({});
       #5398f7 80%,
       #5398f7 100%
     ),
-    url("../assets/back.webp");
+    url("../../assets/back.webp");
   opacity: 1;
   background-size: cover;
   background-repeat: no-repeat;

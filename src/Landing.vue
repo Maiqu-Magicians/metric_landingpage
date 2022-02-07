@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import MainHeader from "./components/header.vue";
-import Backgd from "./components/background.vue";
+import MainHeader from "./components/base/header.vue";
+import Backgd from "./components/base/background.vue";
 
 export default defineComponent({
   components: {

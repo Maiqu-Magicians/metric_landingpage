@@ -5,7 +5,7 @@
         <el-row class="info-title" style="height: 100%" align="middle">
           <el-col :span="5">用户头像</el-col>
           <el-col :span="14">
-            <img :src="img" />
+            <img :src="info.avtr_src" />
           </el-col>
           <el-col :span="4">
             <div class="btn">上传</div>
@@ -71,6 +71,9 @@ export default defineComponent({
       email: "",
       wxid: "",
       phone: "",
+      info: {
+        avtr_src: "",
+      },
     };
   },
 });

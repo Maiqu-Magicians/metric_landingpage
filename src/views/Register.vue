@@ -1,106 +1,84 @@
 <template>
-  <el-row style="height: 90vh" justify="center">
-    <el-col :span="1" />
-    <el-col :span="18">
-      <div class="main-card">
-        <div class="home-top-text">你好呀，新朋友</div>
-        <el-row
-          class="main-card-row"
-          justify="space-around"
-          style="position: relative; top: 15vh"
-        >
-          <el-col :span="1" />
-          <el-col :span="8">
-            <div class="main-card-content">
-              <button @click="this.$router.push('./login')">微信登陆</button>
-            </div>
-          </el-col>
-          <el-col :span="2">
-            <div class="line" />
-            <span class="small-ch">或</span>
-            <div class="line" />
-          </el-col>
-          <el-col :span="8">
-            <div class="main-card-content-right">
-              <el-form
-                :model="ruleForm"
-                :rules="rules"
-                ref="ruleForm"
-                label-width="100px"
-                class="demo-ruleForm"
-              >
-                <el-form-item prop="tel">
-                  <el-input
-                    placeholder="账号"
-                    v-model="ruleForm.tel"
-                  ></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                  <el-input
-                    style="width: 55%; height: 60px"
-                    placeholder="验证码"
-                    v-model="ruleForm.code"
-                  ></el-input>
-                  <el-button
-                    style="
-                      position: relative;
-                      left: 10%;
-                      width: 35%;
-                      height: 60px;
-                      background-color: #55585a + 7a;
-                      border: 5px white;
-                    "
-                    round
-                    @click="getCode()"
-                    :disabled="totalTime < 60"
-                    >{{ btn_content }}</el-button
-                  >
-                </el-form-item>
+  <double-col-card>
+    <template v-slot:top-text>你好呀 新朋友</template>
+    <template v-slot:left-content>
+      <button @click="pushLogin">微信登陆</button>
+    </template>
+    <template v-slot:right-content>
+      <el-form
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item prop="tel">
+          <el-input placeholder="账号" v-model="ruleForm.tel"></el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            style="width: 55%; height: 60px"
+            placeholder="验证码"
+            v-model="ruleForm.code"
+          ></el-input>
+          <el-button
+            style="
+              position: relative;
+              left: 10%;
+              width: 35%;
+              height: 60px;
+              background-color: #55585a + 7a;
+              border: 5px white;
+            "
+            round
+            @click="getCode()"
+            :disabled="totalTime < 60"
+            >{{ btn_content }}</el-button
+          >
+        </el-form-item>
 
-                <el-form-item>
-                  <el-button
-                    type="primary"
-                    style="width: 100%; height: 60px"
-                    round
-                    @click="submitForm()"
-                    >注册</el-button
-                  >
-                </el-form-item>
-              </el-form>
-              <div
-                style="
-                  display: flex;
-                  flex: 1;
-                  flex-flow: row nowarp;
-                  justify-content: space-between;
-                "
-              >
-                <el-link
-                  style="
-                    margin-left: 100px;
-                    height: 3vh;
-                    font-weight: bold;
-                    color: #ffffff;
-                  "
-                  href="/login"
-                  >已有账号？直接登录</el-link
-                >
-              </div>
-            </div>
-          </el-col>
-          <el-col :span="1" />
-        </el-row>
+        <el-form-item>
+          <el-button
+            type="primary"
+            style="width: 100%; height: 60px"
+            round
+            @click="submitForm()"
+            >注册</el-button
+          >
+        </el-form-item>
+      </el-form>
+      <div
+        style="
+          display: flex;
+          flex: 1;
+          flex-flow: row nowarp;
+          justify-content: space-between;
+        "
+      >
+        <el-link
+          style="
+            margin-left: 100px;
+            height: 3vh;
+            font-weight: bold;
+            color: #ffffff;
+          "
+          href="/login"
+          >已有账号？直接登录</el-link
+        >
       </div>
-    </el-col>
-    <el-col :span="1" />
-  </el-row>
+    </template>
+  </double-col-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import doubleColCard from "@/components/doubleColCard.vue";
 
 export default defineComponent({
   name: "Login",
+  components: {
+    doubleColCard,
+  },
   data() {
     return {
       btn_content: "获取验证码",
@@ -108,6 +86,7 @@ export default defineComponent({
       ruleForm: {
         tel: "",
         password: "",
+        code: "",
       },
       rules: {
         tel: [{ required: true, message: "请输入手机号码", trigger: "blur" }],
@@ -129,6 +108,9 @@ export default defineComponent({
           window.clearInterval(clock);
         }
       }, 1000);
+    },
+    pushLogin() {
+      this.$router.push("/login");
     },
   },
 });

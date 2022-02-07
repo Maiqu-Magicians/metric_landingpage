@@ -2,10 +2,10 @@
   <el-row style="height: 90vh" justify="center">
     <el-col :span="1" />
     <el-col :span="20" type="flex">
-      <div style="height: 36vh">
+      <div style="height: 26vh">
         <el-carousel :interval="4000" type="card" height="200px">
           <el-carousel-item v-for="item in 6" :key="item">
-            <h3 class="medium">{{ item }}</h3>
+            <h3 class="medium">{{ item + 1 }}</h3>
           </el-carousel-item>
         </el-carousel>
       </div>

@@ -1,30 +1,30 @@
 <template>
   <div class="thisheader">
     <el-row justify="center" align="middle" style="height: 100%">
-      <el-col :span="4" />
-      <el-col :span="3">
+      <el-col :span="1" />
+      <el-col :span="3" :xs="10">
         <div class="topbar-title">
           <router-link to="/" class="topbar-title-link"
-            >麦趣 METRIC</router-link
+            >麦趣 MyMetric</router-link
           >
         </div>
       </el-col>
-      <el-col :span="1">
-        <div class="topbar-buy">
-          <router-link to="/personalCenter/product" class="topbar-prd-link">
+      <el-col :span="1" :xs="0">
+        <div class="topbar-buy hidden-md-and-down">
+          <router-link to="/products" class="topbar-prd-link">
             产品
           </router-link>
         </div>
       </el-col>
-      <el-col :span="1">
-        <div class="topbar-buy">
-          <router-link to="/personalCenter" class="topbar-prd-link"
+      <el-col :span="1" :xs="0">
+        <div class="topbar-buy hidden-md-and-down">
+          <router-link to="/personalCenter/info" class="topbar-prd-link"
             >价格</router-link
           >
         </div>
       </el-col>
-      <el-col :span="7" />
-      <el-col :span="3" v-if="!isLoggedIn">
+      <el-col :span="11" :xs="3" />
+      <el-col :span="3" :xs="10" v-if="!isLoggedIn">
         <el-button
           type="default"
           round
@@ -43,7 +43,7 @@
         >
       </el-col>
       <el-col :span="3" v-else> isLoggedIn </el-col>
-      <el-col :span="4" />
+      <el-col :span="1" />
     </el-row>
   </div>
 </template>
