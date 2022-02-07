@@ -1,5 +1,93 @@
 <template>
-  <el-row style="height: 90vh" justify="center">
+  <double-col-card>
+    <template v-slot:top-text>欢迎来到麦趣</template>
+    <template v-slot:left-content>
+      <button @click="pushLogin">微信登陆</button>
+    </template>
+    <template v-slot:right-content>
+      <el-form
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item prop="tel">
+          <el-input placeholder="账号" v-model="ruleForm.tel"></el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            type="password"
+            placeholder="密码"
+            v-model="ruleForm.password"
+            show-password
+          ></el-input>
+        </el-form-item>
+        <div
+          style="
+            display: flex;
+            flex: 1;
+            flex-flow: row nowarp;
+            justify-content: space-end;
+            width: 100%;
+          "
+        >
+          <el-link
+            style="
+              position: relative;
+              left: 100px;
+              height: 3vh;
+              font-weight: bold;
+              color: #ffffff;
+            "
+            href="/findPassword"
+          >
+            忘记密码？
+          </el-link>
+        </div>
+        <el-form-item>
+          <el-button
+            type="primary"
+            style="width: 100%; height: 60px"
+            round
+            @click="submitForm()"
+            >登陆</el-button
+          >
+        </el-form-item>
+      </el-form>
+      <div
+        style="
+          display: flex;
+          flex: 1;
+          flex-flow: row nowarp;
+          justify-content: space-between;
+        "
+      >
+        <el-link
+          style="
+            margin-left: 100px;
+            height: 3vh;
+            font-weight: bold;
+            color: #ffffff;
+          "
+          href="/loginwithcode"
+          >短信验证码登陆</el-link
+        >
+        <el-link
+          style="
+            position: relative;
+            margin-right: 0%;
+            font-weight: bold;
+            color: #ffffff;
+          "
+          href="/register"
+          >还没账号？马上注册</el-link
+        >
+      </div>
+    </template>
+  </double-col-card>
+
+  <!-- <el-row style="height: 90vh" justify="center">
     <el-col :span="1" />
     <el-col :span="18">
       <div class="main-card">
@@ -7,12 +95,12 @@
         <el-row
           class="main-card-row"
           justify="space-around"
-          style="postion: relative; top: 15vh"
+          style="position: relative; top: 15vh"
         >
           <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
-              <button @click="this.$router.push('./login')">微信登陆</button>
+              <button @click="pushLogin">微信登陆</button>
             </div>
           </el-col>
           <el-col :span="2">
@@ -21,103 +109,33 @@
             <div class="line" />
           </el-col>
           <el-col :span="8">
-            <div class="main-card-content-right">
-              <el-form
-                :model="ruleForm"
-                :rules="rules"
-                ref="ruleForm"
-                label-width="100px"
-                class="demo-ruleForm"
-              >
-                <el-form-item prop="tel">
-                  <el-input
-                    placeholder="账号"
-                    v-model="ruleForm.tel"
-                  ></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                  <el-input
-                    type="password"
-                    placeholder="密码"
-                    v-model="ruleForm.password"
-                    show-password
-                  ></el-input>
-                </el-form-item>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-flow: row nowarp;
-                    justify-content: space-end;
-                    width: 100%;
-                  "
-                >
-                  <el-link
-                    style="
-                      position: relative;
-                      left: 100px;
-                      height: 3vh;
-                      font-weight: bold;
-                      color: #ffffff;
-                    "
-                    href="/findPassword"
-                  >
-                    忘记密码？
-                  </el-link>
-                </div>
-                <el-form-item>
-                  <el-button
-                    type="primary"
-                    style="width: 100%; height: 60px"
-                    round
-                    @click="submitForm()"
-                    >登陆</el-button
-                  >
-                </el-form-item>
-              </el-form>
-              <div
-                style="
-                  display: flex;
-                  flex: 1;
-                  flex-flow: row nowarp;
-                  justify-content: space-between;
-                "
-              >
-                <el-link
-                  style="
-                    margin-left: 100px;
-                    height: 3vh;
-                    font-weight: bold;
-                    color: #ffffff;
-                  "
-                  href="/loginwithcode"
-                  >短信验证码登陆</el-link
-                >
-                <el-link
-                  style="
-                    position: relative;
-                    margin-right: 0%;
-                    font-weight: bold;
-                    color: #ffffff;
-                  "
-                  href="/register"
-                  >还没账号？马上注册</el-link
-                >
-              </div>
-            </div>
+            <div class="main-card-content-right"></div>
           </el-col>
           <el-col :span="1" />
         </el-row>
       </div>
     </el-col>
     <el-col :span="1" />
-  </el-row>
+  </el-row> -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import doubleColCard from "@/components/doubleColCard.vue";
+
 export default defineComponent({
   name: "Login",
+  components: {
+    doubleColCard,
+  },
+  methods: {
+    pushLogin() {
+      this.$router.push("/login");
+    },
+    submitForm() {
+      console.log("login");
+    },
+  },
   data() {
     return {
       ruleForm: {
@@ -129,11 +147,6 @@ export default defineComponent({
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
     };
-  },
-  methods: {
-    submitForm() {
-      console.log("login");
-    },
   },
 });
 </script>

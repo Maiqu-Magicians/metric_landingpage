@@ -53,6 +53,11 @@ export default defineComponent({
           time: "",
           status: "",
         },
+        {
+          name: "",
+          time: "",
+          status: "",
+        },
       ],
     };
   },

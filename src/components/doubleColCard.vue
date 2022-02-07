@@ -3,7 +3,9 @@
     <el-col :span="1" />
     <el-col :span="18">
       <div class="main-card">
-        <div class="home-top-text">你好呀，新朋友</div>
+        <div class="home-top-text">
+          <slot name="top-text"></slot>
+        </div>
         <el-row
           class="main-card-row"
           justify="space-around"
@@ -12,7 +14,7 @@
           <el-col :span="1" />
           <el-col :span="8">
             <div class="main-card-content">
-              <button @click="this.$router.push('./login')">微信登陆</button>
+              <slot name="left-content"></slot>
             </div>
           </el-col>
           <el-col :span="2">
@@ -22,70 +24,7 @@
           </el-col>
           <el-col :span="8">
             <div class="main-card-content-right">
-              <el-form
-                :model="ruleForm"
-                :rules="rules"
-                ref="ruleForm"
-                label-width="100px"
-                class="demo-ruleForm"
-              >
-                <el-form-item prop="tel">
-                  <el-input
-                    placeholder="账号"
-                    v-model="ruleForm.tel"
-                  ></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                  <el-input
-                    style="width: 55%; height: 60px"
-                    placeholder="验证码"
-                    v-model="ruleForm.code"
-                  ></el-input>
-                  <el-button
-                    style="
-                      position: relative;
-                      left: 10%;
-                      width: 35%;
-                      height: 60px;
-                      background-color: #55585a + 7a;
-                      border: 5px white;
-                    "
-                    round
-                    @click="getCode()"
-                    :disabled="totalTime < 60"
-                    >{{ btn_content }}</el-button
-                  >
-                </el-form-item>
-
-                <el-form-item>
-                  <el-button
-                    type="primary"
-                    style="width: 100%; height: 60px"
-                    round
-                    @click="submitForm()"
-                    >注册</el-button
-                  >
-                </el-form-item>
-              </el-form>
-              <div
-                style="
-                  display: flex;
-                  flex: 1;
-                  flex-flow: row nowarp;
-                  justify-content: space-between;
-                "
-              >
-                <el-link
-                  style="
-                    margin-left: 100px;
-                    height: 3vh;
-                    font-weight: bold;
-                    color: #ffffff;
-                  "
-                  href="/login"
-                  >已有账号？直接登录</el-link
-                >
-              </div>
+              <slot name="right-content"></slot>
             </div>
           </el-col>
           <el-col :span="1" />
@@ -98,39 +37,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 export default defineComponent({
-  name: "Login",
-  data() {
-    return {
-      btn_content: "获取验证码",
-      totalTime: 60,
-      ruleForm: {
-        tel: "",
-        password: "",
-      },
-      rules: {
-        tel: [{ required: true, message: "请输入手机号码", trigger: "blur" }],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-      },
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log("login");
-    },
-    getCode() {
-      let clock = window.setInterval(() => {
-        this.btn_content = this.totalTime + "s后重新发送";
-        this.totalTime--;
-        if (this.totalTime < 0) {
-          this.totalTime = 60;
-          this.btn_content = "重新发送验证码";
-          window.clearInterval(clock);
-        }
-      }, 1000);
-    },
-  },
+  name: "double-col-card",
 });
 </script>
 
@@ -157,7 +65,7 @@ export default defineComponent({
 .main-card {
   margin-top: 7vh;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background: rgba(255, 255, 255, 0.19);
   backdrop-filter: saturate(100%) blur(30px);
   opacity: 1;
@@ -201,20 +109,6 @@ export default defineComponent({
 }
 
 /* 输入框样式 */
-::v-deep .el-input__inner {
-  height: 60px;
-  width: 1800px;
-  border-radius: 10px;
-  color: #4d1515;
-  opacity: 0.5;
-}
-/* 按钮样式 */
-::v-deep .el-button__inner {
-  height: 60px;
-  width: 1800px;
-  color: rgb(28, 32, 255);
-  opacity: 0.5;
-}
 
 .main-card-content > * {
   position: relative;

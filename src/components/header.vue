@@ -1,6 +1,6 @@
 <template>
   <div class="thisheader">
-    <el-row justify="center" style="height: 100%">
+    <el-row justify="center" align="middle" style="height: 100%">
       <el-col :span="4" />
       <el-col :span="3">
         <div class="topbar-title">
@@ -24,16 +24,25 @@
         </div>
       </el-col>
       <el-col :span="7" />
-      <el-col :span="1">
-        <router-link to="/register" style="text-decoration: none">
-          <div class="btn-signup"><span>注册</span></div>
-        </router-link>
+      <el-col :span="3" v-if="!isLoggedIn">
+        <el-button
+          type="default"
+          round
+          size="large"
+          style="transform: translate(0, -50%)"
+          @click="pushRegister"
+          >注册</el-button
+        >
+        <el-button
+          type="primary"
+          round
+          size="large"
+          style="transform: translate(0, -50%)"
+          @click="pushLogin"
+          >登录</el-button
+        >
       </el-col>
-      <el-col :span="2">
-        <router-link to="/login" style="text-decoration: none">
-          <div class="btn-login"><span>登录</span></div>
-        </router-link>
-      </el-col>
+      <el-col :span="3" v-else> isLoggedIn </el-col>
       <el-col :span="4" />
     </el-row>
   </div>
@@ -42,7 +51,22 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-export default defineComponent({});
+export default defineComponent({
+  methods: {
+    pushLogin() {
+      this.$router.push("/login");
+    },
+    pushRegister() {
+      this.$router.push("/register");
+    },
+  },
+  data() {
+    return {
+      isLoggedIn: false,
+      isBackState: false,
+    };
+  },
+});
 </script>
 
 <style scoped>
@@ -102,13 +126,15 @@ export default defineComponent({});
   width: 100vw;
   background: rgba(255, 255, 255, 0.39);
   backdrop-filter: saturate(100%) blur(20px);
+  /* border: 2px solid; */
 }
 
 .btn-signup {
   position: relative;
   margin: 0 auto;
-  top: 1.2vh;
+  /* top: 1.2vh; */
   width: 4vw;
+  transform: translate(-50%, -50%);
   height: 3vh;
   border: 2px solid #ffffff;
   opacity: 1;
@@ -118,17 +144,21 @@ export default defineComponent({});
 
 .btn-signup > span {
   position: relative;
-  margin: 0 auto;
   color: #ffffff;
   font-size: 100%;
-  line-height: 30%;
-  top: 17%;
+}
+
+.btn-signup > span::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
 }
 
 .btn-login {
   position: relative;
   margin: 0 auto;
-  top: 1.2vh;
+  transform: translate(-50%, -50%);
   width: 4vw;
   height: 3vh;
   background-color: rgba(65, 153, 255, 0.39);
@@ -144,7 +174,13 @@ export default defineComponent({});
   margin: 0 auto;
   color: #ffffff;
   font-size: 100%;
-  top: 17%;
-  line-height: 50%;
+  /* top: 17%; */
+  /* line-height: 50%; */
+}
+.btn-login > span::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
 }
 </style>
