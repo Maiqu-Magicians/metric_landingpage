@@ -86,37 +86,6 @@
       </div>
     </template>
   </double-col-card>
-
-  <!-- <el-row style="height: 90vh" justify="center">
-    <el-col :span="1" />
-    <el-col :span="18">
-      <div class="main-card">
-        <div class="home-top-text">欢迎来到麦趣</div>
-        <el-row
-          class="main-card-row"
-          justify="space-around"
-          style="position: relative; top: 15vh"
-        >
-          <el-col :span="1" />
-          <el-col :span="8">
-            <div class="main-card-content">
-              <button @click="pushLogin">微信登陆</button>
-            </div>
-          </el-col>
-          <el-col :span="2">
-            <div class="line" />
-            <span class="small-ch">或</span>
-            <div class="line" />
-          </el-col>
-          <el-col :span="8">
-            <div class="main-card-content-right"></div>
-          </el-col>
-          <el-col :span="1" />
-        </el-row>
-      </div>
-    </el-col>
-    <el-col :span="1" />
-  </el-row> -->
 </template>
 
 <script lang="ts">

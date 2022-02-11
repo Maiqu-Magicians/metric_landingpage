@@ -8,7 +8,7 @@
             <img :src="info.avtr_src" />
           </el-col>
           <el-col :span="4">
-            <div class="btn">上传</div>
+            <el-button type="primary" round @click="uploadAvtr">上传</el-button>
           </el-col>
         </el-row>
       </div>
@@ -18,7 +18,7 @@
           <el-col :span="5">用户名</el-col>
           <el-col :span="14">{{ username }}</el-col>
           <el-col :span="4">
-            <div class="btn">修改</div>
+            <change-username />
           </el-col>
         </el-row>
       </div>
@@ -28,7 +28,9 @@
           <el-col :span="5">绑定手机</el-col>
           <el-col :span="14">{{ phone }}</el-col>
           <el-col :span="4">
-            <div class="btn">换绑</div>
+            <el-button type="primary" round @click="changePhone"
+              >换绑</el-button
+            >
           </el-col>
         </el-row>
       </div>
@@ -38,7 +40,9 @@
           <el-col :span="5">绑定邮箱</el-col>
           <el-col :span="14">{{ email }}</el-col>
           <el-col :span="4">
-            <div class="btn">换绑</div>
+            <el-button type="primary" round @click="changeEmail"
+              >换绑</el-button
+            >
           </el-col>
         </el-row>
       </div>
@@ -48,7 +52,7 @@
           <el-col :span="5">绑定微信</el-col>
           <el-col :span="14">{{ wxid }}</el-col>
           <el-col :span="4">
-            <div class="btn">解绑</div>
+            <el-button type="primary" round @click="changeWX">解绑</el-button>
           </el-col>
         </el-row>
       </div>
@@ -58,11 +62,30 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import changeUsername from "@/components/dialogs/changeUsername.vue";
 
 export default defineComponent({
+  components: { changeUsername },
   mounted() {
     this.username = "Dustella";
     this.phone = "1111";
+  },
+  methods: {
+    changeWX() {
+      console.log("changeWX");
+    },
+    changeEmail() {
+      console.log("changeEmail");
+    },
+    changePhone() {
+      console.log("changePhone");
+    },
+    changeUsername() {
+      console.log("changeUsername");
+    },
+    uploadAvtr() {
+      console.log("uploadAvtr");
+    },
   },
   data() {
     return {

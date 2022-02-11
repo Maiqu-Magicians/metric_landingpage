@@ -42,7 +42,9 @@
           >登录</el-button
         >
       </el-col>
-      <el-col :span="3" v-else> isLoggedIn </el-col>
+      <el-col :span="3" v-else>
+        <el-avatar :size="25" :src="avtr_src" class="avtr"></el-avatar>
+      </el-col>
       <el-col :span="1" />
     </el-row>
   </div>
@@ -62,14 +64,22 @@ export default defineComponent({
   },
   data() {
     return {
-      isLoggedIn: false,
+      isLoggedIn: true,
       isBackState: false,
+      avtr_src:
+        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
     };
   },
 });
 </script>
 
 <style scoped>
+.avtr {
+  position: relative;
+  margin: 0 auto;
+  transform: translate(0%, -50%);
+}
+
 .topbar-title-link {
   height: 10vh;
   font-size: 3vh;

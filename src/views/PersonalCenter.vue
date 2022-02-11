@@ -6,7 +6,7 @@
         <div class="left-card-content">
           <div class="head-icon">
             <img
-              src="@/assets/icons8-user.svg"
+              :src="avtr_src"
               style="
                 position: relative;
                 width: 30%;
@@ -42,10 +42,12 @@ import { defineComponent } from "vue";
 export default defineComponent({
   mounted() {
     this.getPath();
+    this.avtr_src = "@/assets/icons8-user.svg";
   },
   data() {
     return {
       lala: "",
+      avtr_src: "",
     };
   },
   methods: {
@@ -78,8 +80,10 @@ export default defineComponent({
 }
 
 .btn {
-  width: 64px;
-  height: 21px;
+  position: relative;
+  margin-top: 1vh;
+  width: 189px;
+  height: 62px;
   font-size: 16px;
   font-family: OPPOSans;
   font-weight: 400;
@@ -87,6 +91,7 @@ export default defineComponent({
   color: #ffffff;
   opacity: 1;
   text-decoration: none;
+  text-align: center;
 }
 
 .btn::before {
