@@ -1,12 +1,9 @@
 <template>
   <Backgd />
   <MainHeader />
-  <!-- <router-view v-slot="{ Component }"> -->
   <transition name="fade" mode="out-in">
     <router-view />
-    <!-- <component :is="Component" /> -->
   </transition>
-  <!-- </router-view> -->
 </template>
 
 <script lang="ts">

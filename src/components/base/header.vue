@@ -94,7 +94,7 @@ export default defineComponent({
 
 .topbar-title-link {
   height: 10vh;
-  font-size: 3vh;
+  font-size: 2.7vh;
   font-family: OPPOSans;
   font-weight: 800;
   line-height: 24px;

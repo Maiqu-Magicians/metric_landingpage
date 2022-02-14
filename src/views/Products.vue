@@ -3,15 +3,25 @@
     <el-col :span="1" />
     <el-col :span="21" type="flex">
       <div class="top-carousel-content">
-        <el-carousel :interval="4000" height="200px">
-          <el-carousel-item v-for="item in 6" :key="item">
-            <h3 class="medium">{{ item + 1 }}</h3>
+        <el-carousel :interval="4000" :height="topheight" width="1000px">
+          <el-carousel-item v-for="item in car" :key="item.index">
+            <div
+              class="medium"
+              :style="{
+                'background-image': 'url(' + item.backgd_url + ')',
+                'background-repeat': 'no-repeat',
+                'background-size': 'cover',
+                'background-position': 'center',
+                height: '100%',
+                'border-radius': '4vh',
+              }"
+            ></div>
           </el-carousel-item>
         </el-carousel>
       </div>
       <div>
-        <el-row justify="space-around">
-          <el-col :span="4">
+        <el-row :justify="productsJustify" :gutter="0">
+          <el-col :span="4" :xs="0">
             <div class="menu-card">
               <div class="option-btn" v-for="i of classes" :key="i.index">
                 <router-link style="text-decoration: none" :to="i.route">
@@ -20,8 +30,8 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="1" />
-          <el-col :span="18">
+          <el-col :span="1" :xs="0" />
+          <el-col :span="18" :xs="24" class="right-content">
             <router-view />
           </el-col>
         </el-row>
@@ -38,6 +48,20 @@ export default defineComponent({
   name: "AllProducts",
   data() {
     return {
+      car: [
+        {
+          index: 0,
+          backgd_url: "https://img-cdn.dustella.net/car0.webp",
+        },
+        {
+          index: 1,
+          backgd_url: "https://img-cdn.dustella.net/car1.webp",
+        },
+        {
+          index: 2,
+          backgd_url: "https://img-cdn.dustella.net/car2.webp",
+        },
+      ],
       classes: [
         {
           index: 1,
@@ -62,13 +86,34 @@ export default defineComponent({
       ],
     };
   },
+  computed: {
+    topheight() {
+      return document.body.clientWidth < 1200 ? "200px" : "300px";
+    },
+    productsJustify() {
+      return document.body.clientWidth < 1200 ? "center" : "center";
+    },
+  },
 });
 </script>
 
 <style scoped lang="scss">
+.right-content {
+  height: 1000vh;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  right: 0;
+}
 .top-carousel-content {
-  height: 26vh;
+  height: 350px;
   margin: 2vh auto;
+}
+@media only screen and (max-width: 1081px) {
+  .top-carousel-content {
+    height: 200px;
+    margin: 2vh auto;
+  }
 }
 .el-carousel__item h3 {
   color: #475669;
@@ -78,18 +123,18 @@ export default defineComponent({
   margin: 0;
 }
 
-.el-carousel__item:nth-child(2n) {
-  // background-image:url("C://Users//17100//Desktop//图片//琦玉老师.jpg");
-  width: 1500px;
-}
+// .el-carousel__item:nth-child(2n) {
+//   // background-image:url("C://Users//17100//Desktop//图片//琦玉老师.jpg");
+//   width: 1500px;
+// }
 
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
+// .el-carousel__item:nth-child(2n + 1) {
+//   background-color: #d3dce6;
+// }
 
 .menu-card {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: saturate(100%) blur(40px);
   background-clip: content-box;

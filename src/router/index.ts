@@ -53,6 +53,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/products",
     name: "AllProducts",
+    redirect: "/products/all",
     component: AllProducts,
     children: [
       {
