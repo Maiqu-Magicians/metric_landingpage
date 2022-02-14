@@ -1,16 +1,18 @@
 <template>
   <el-button type="primary" round @click="mdopen = true">修改</el-button>
   <teleport to="body">
-    <div class="modal" v-if="mdopen">
-      <div>
-        <div class="close" @click="mdopen = false"></div>
-        <span>修改用户名</span>
-        <el-input v-model="username"></el-input>
-        <el-button type="primary" style="width: 80%; height: 60px" round
-          >确定</el-button
-        >
+    <transition name="fade">
+      <div class="modal" v-if="mdopen">
+        <div>
+          <div class="close" @click="mdopen = false"></div>
+          <span>修改用户名</span>
+          <el-input v-model="username"></el-input>
+          <el-button type="primary" style="width: 80%; height: 60px" round
+            >确定</el-button
+          >
+        </div>
       </div>
-    </div>
+    </transition>
   </teleport>
 </template>
 
@@ -26,6 +28,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 .modal {
   position: absolute;
   top: 0;
@@ -52,12 +63,12 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 5px;
   width: 650px;
   height: 392px;
   background: rgba(65, 153, 255, 0.39);
-  backdrop-filter: saturate(100%) blur(40px);
+  /* backdrop-filter: saturate(0%) blur(40px); */
 
   opacity: 1;
   border-radius: 10px;
@@ -79,18 +90,17 @@ export default defineComponent({
   opacity: 0.5;
 }
 .close {
-  /* background: orange; */
   color: white;
   border-radius: 12px;
   line-height: 20px;
-  text-align: center;
+  text-align: right;
   height: 20px;
-  width: 20px;
+  width: 100%;
   font-size: 18px;
   padding: 1px;
+  position: relative;
   top: 10px;
   right: 10px;
-  position: absolute;
   opacity: 0.7;
 }
 .close:hover {

@@ -42,8 +42,13 @@
           >登录</el-button
         >
       </el-col>
-      <el-col :span="3" v-else>
-        <el-avatar :size="25" :src="avtr_src" class="avtr"></el-avatar>
+      <el-col :span="3" :xs="10" v-else>
+        <el-avatar
+          :size="25"
+          :src="avtr_src"
+          class="avtr"
+          @click="pushCenter"
+        ></el-avatar>
       </el-col>
       <el-col :span="1" />
     </el-row>
@@ -61,6 +66,9 @@ export default defineComponent({
     pushRegister() {
       this.$router.push("/register");
     },
+    pushCenter() {
+      this.$router.push("/personalCenter/info");
+    },
   },
   data() {
     return {
@@ -76,8 +84,12 @@ export default defineComponent({
 <style scoped>
 .avtr {
   position: relative;
-  margin: 0 auto;
-  transform: translate(0%, -50%);
+  margin-right: 0;
+  transform: translate(600%, -50%);
+}
+
+.avtr:hover {
+  opacity: 0.7;
 }
 
 .topbar-title-link {

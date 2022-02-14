@@ -101,6 +101,20 @@ export default defineComponent({
   vertical-align: middle;
 }
 
+.btn:hover {
+  width: 189px;
+  height: 62px;
+  background: rgba(65, 153, 255, 0.1);
+  box-shadow: 0px 10px 20px rgba(83, 152, 247, 0.4);
+  opacity: 1;
+  border-radius: 31px;
+
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+  /* line-height: %; */
+}
+
 .router-link-exact-active {
   width: 189px;
   height: 62px;
