@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 90vh" justify="center">
     <el-col :span="1" />
-    <el-col :span="20" type="flex">
+    <el-col :span="21" type="flex">
       <div style="height: 26vh">
         <el-carousel :interval="4000" type="card" height="200px">
           <el-carousel-item v-for="item in 6" :key="item">
@@ -9,163 +9,25 @@
           </el-carousel-item>
         </el-carousel>
       </div>
+      <el-row style="height: 6vh" />
       <div>
         <el-row justify="space-around">
           <el-col :span="5" class="menu-card">
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">全部</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">热门推荐</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">职业能力</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">压力测试</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">性格测试</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">类别</div>
-              </router-link>
-            </el-row>
-            <el-row class="tac">
-              <router-link to="/mainpage">
-                <div style="height: 8vh" class="ele">类别</div>
+            <el-row style="height: 5vh"></el-row>
+            <el-row class="tac" v-for="i of items" :key="i.name">
+              <router-link style="text-decoration: none" to="/mainpage">
+                <div style="height: 6vh" class="ele">{{ i }}</div>
               </router-link>
             </el-row>
           </el-col>
-          <el-col :span="17" class="main-card">
-            <el-col :span="5">
-              <!-- url里放图片地址 -->
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                &nbsp;&nbsp;&nbsp;&nbsp;测评名称2&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                &nbsp;&nbsp;&nbsp;&nbsp;测评名称3&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                &nbsp;&nbsp;&nbsp;&nbsp;测评名称4&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
-                </router-link>
-              </div>
-            </el-col>
-            <el-col :span="5">
-              <div class="section-card" style="background-image: url()">
-                麦趣游戏化测评<br />小程序<br />
-                <router-link to="/mainpage" style="width: 40%">
+          <el-col :span="19" class="main-card">
+            <el-col :span="5" v-for="i of product_list" :key="i.name">
+              <div
+                class="section-card"
+                style="background-image: url( {{ i.backgd_url }} )"
+              >
+                {{ i.name }}
+                <router-link to="{{i.target_url}}" style="width: 40%">
                   <img src="@/assets/btn_login.svg" style="width: 60%" />
                 </router-link>
               </div>
@@ -185,14 +47,61 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "AllProducts",
   data() {
-    return {};
+    return {
+      product_list: [
+        {
+          name: "测评名称1",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+        {
+          name: "测评名称2",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+        {
+          name: "测评名称3",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+        {
+          name: "测评名称4",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+        {
+          name: "测评名称5",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+        {
+          name: "麦趣游戏化测评小程序",
+          backgd_url: "http://",
+          target_url: "http://",
+        },
+      ],
+      items: ["全部", "职业能力", "压力测试", "性格测试", "类别", "类别"],
+    };
   },
 });
 </script>
 
 <style scoped lang="scss">
-.router-link-active {
-  text-decoration: none;
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  // background-image:url("C://Users//17100//Desktop//图片//琦玉老师.jpg");
+  width: 1500px;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 
 .menu-card {
@@ -200,6 +109,7 @@ export default defineComponent({
   height: 90vh;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: saturate(100%) blur(40px);
+  background-clip: content-box;
   opacity: 1;
   border-radius: 20px;
   overflow: hidden;
@@ -219,7 +129,7 @@ export default defineComponent({
   align-items: center;
   text-align: center;
   margin-top: 25px;
-  text-decoration: none;
+  font-size: 15px;
 }
 
 .section-card {
@@ -228,94 +138,7 @@ export default defineComponent({
   text-align: center;
   font-weight: bold;
   border-radius: 10px;
-  margin: 5px 10px 10px 5px;
+  margin: 0 5px 5px 0;
   padding-top: 120px;
-}
-
-.line {
-  width: 0px;
-  height: 35vh;
-  border: 1px solid #ffffff;
-  opacity: 1;
-  position: relative;
-  left: 50%;
-  top: 50%;
-}
-
-.main-card {
-  align-items: center;
-}
-
-.main-card-content {
-  position: relative;
-  width: 100%;
-  /* height: 40%; */
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-  left: 50%;
-  top: 45%;
-
-  transform: translate(-50%, -80%);
-
-  /* -webkit-transform: translate(-50%, -50%); */
-  overflow: hidden;
-  margin: 0 auto;
-  /* padding: 0 0; */
-}
-
-.main-card-content > * {
-  position: relative;
-  padding: 0;
-  margin: 2.5vh auto;
-}
-
-.main-card-content > span {
-  text-align: center;
-  /* width: 130px; */
-  height: 40px;
-  font-size: 5vh;
-  font-family: OPPOSans;
-  font-weight: 600;
-  line-height: 47px;
-  color: #ffffff;
-  opacity: 1;
-}
-
-.main-card-row {
-  /* display:; */
-  position: absolute;
-  width: 100%;
-  height: 60vh;
-  top: 10vh;
-}
-
-.home-top-text {
-  position: relative;
-  text-align: left;
-  right: 0;
-  /* margin: 0 auto; */
-  height: 7vh;
-  font-size: 5vh;
-  font-family: OPPOSans;
-  font-weight: 900;
-  line-height: 13vh;
-  color: #ffffff;
-  opacity: 1;
-}
-
-.home-bottom-text {
-  position: relative;
-  text-align: left;
-  right: 0;
-  margin: 0 auto;
-  top: 14%;
-  height: 8vh;
-  font-size: 2.1vh;
-  font-family: OPPOSans;
-  font-weight: 530;
-  line-height: 6vh;
-  color: #ffffff;
-  opacity: 1;
 }
 </style>
