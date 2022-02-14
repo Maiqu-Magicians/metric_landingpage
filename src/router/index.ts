@@ -12,6 +12,7 @@ import SetPassword from "../views/SetPassword.vue";
 import FirstSet from "../views/FirstSet.vue";
 import FindPassword from "../views/FindPassword.vue";
 import AllProducts from "../views/Products.vue";
+import ManyProducts from "../components/manyProducts.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -53,6 +54,24 @@ const routes: Array<RouteRecordRaw> = [
     path: "/products",
     name: "AllProducts",
     component: AllProducts,
+    children: [
+      {
+        path: "all",
+        component: ManyProducts,
+      },
+      {
+        path: "jobs",
+        component: ManyProducts,
+      },
+      {
+        path: "pressure",
+        component: ManyProducts,
+      },
+      {
+        path: "personality",
+        component: ManyProducts,
+      },
+    ],
   },
   {
     path: "/personalCenter",

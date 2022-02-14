@@ -51,7 +51,7 @@
                     type="primary"
                     style="width: 80%; height: 60px"
                     round
-                    @click="submitForm('ruleForm')"
+                    @click="submitForm()"
                     >重置密码</el-button
                   >
                 </el-form-item>

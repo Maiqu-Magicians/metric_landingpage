@@ -2,38 +2,28 @@
   <el-row style="height: 90vh" justify="center">
     <el-col :span="1" />
     <el-col :span="21" type="flex">
-      <div style="height: 26vh">
-        <el-carousel :interval="4000" type="card" height="200px">
+      <div class="top-carousel-content">
+        <el-carousel :interval="4000" height="200px">
           <el-carousel-item v-for="item in 6" :key="item">
             <h3 class="medium">{{ item + 1 }}</h3>
           </el-carousel-item>
         </el-carousel>
       </div>
-      <el-row style="height: 6vh" />
       <div>
         <el-row justify="space-around">
-          <el-col :span="5" class="menu-card">
-            <el-row style="height: 5vh"></el-row>
-            <el-row class="tac" v-for="i of items" :key="i.name">
-              <router-link style="text-decoration: none" to="/mainpage">
-                <div style="height: 6vh" class="ele">{{ i }}</div>
-              </router-link>
-            </el-row>
-          </el-col>
-          <el-col :span="19" class="main-card">
-            <el-col :span="5" v-for="i of product_list" :key="i.name">
-              <div
-                class="section-card"
-                style="background-image: url( {{ i.backgd_url }} )"
-              >
-                {{ i.name }}
-                <router-link to="{{i.target_url}}" style="width: 40%">
-                  <img src="@/assets/btn_login.svg" style="width: 60%" />
+          <el-col :span="4">
+            <div class="menu-card">
+              <div class="option-btn" v-for="i of classes" :key="i.index">
+                <router-link style="text-decoration: none" :to="i.route">
+                  {{ i.name }}
                 </router-link>
               </div>
-            </el-col>
+            </div>
           </el-col>
           <el-col :span="1" />
+          <el-col :span="18">
+            <router-view />
+          </el-col>
         </el-row>
       </div>
     </el-col>
@@ -48,45 +38,38 @@ export default defineComponent({
   name: "AllProducts",
   data() {
     return {
-      product_list: [
+      classes: [
         {
-          name: "测评名称1",
-          backgd_url: "http://",
-          target_url: "http://",
+          index: 1,
+          name: "全部",
+          route: "/products/All",
         },
         {
-          name: "测评名称2",
-          backgd_url: "http://",
-          target_url: "http://",
+          index: 2,
+          name: "职业能力",
+          route: "/products/jobs",
         },
         {
-          name: "测评名称3",
-          backgd_url: "http://",
-          target_url: "http://",
+          index: 3,
+          name: "压力测试",
+          route: "/products/pressure",
         },
         {
-          name: "测评名称4",
-          backgd_url: "http://",
-          target_url: "http://",
-        },
-        {
-          name: "测评名称5",
-          backgd_url: "http://",
-          target_url: "http://",
-        },
-        {
-          name: "麦趣游戏化测评小程序",
-          backgd_url: "http://",
-          target_url: "http://",
+          index: 4,
+          name: "性格测试",
+          route: "/products/personality",
         },
       ],
-      items: ["全部", "职业能力", "压力测试", "性格测试", "类别", "类别"],
     };
   },
 });
 </script>
 
 <style scoped lang="scss">
+.top-carousel-content {
+  height: 26vh;
+  margin: 2vh auto;
+}
 .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
@@ -106,29 +89,61 @@ export default defineComponent({
 
 .menu-card {
   width: 100%;
-  height: 90vh;
+  height: 60vh;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: saturate(100%) blur(40px);
   background-clip: content-box;
   opacity: 1;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.tac {
+.option-btn {
   display: flex;
   justify-content: center;
+  // align-items: center;
+  width: 100%;
+  height: 8vh;
   :hover {
     width: 100%;
-    font-weight: bold;
-    background-color: royalblue;
+    // font-weight: bold;
+    background: rgba(65, 153, 255, 0.4);
+    text-align: center;
   }
+  overflow: visible;
+  a {
+    color: white;
+    font-size: 18px;
+  }
+  ::before {
+    display: inline-block;
+    height: 100%;
+    content: "";
+    vertical-align: middle;
+  }
+}
+
+.router-link-exact-active {
+  background: rgba(65, 153, 255, 0.89);
+  width: 120%;
+  text-align: center;
+}
+
+.router-link-exact-active::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
 }
 .ele {
   color: #ffffff;
   align-items: center;
   text-align: center;
-  margin-top: 25px;
+  // margin-top: 25px;
   font-size: 15px;
 }
 
