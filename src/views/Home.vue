@@ -5,16 +5,16 @@
       <div class="home-top-content">
         <div class="home-top-text">Hi~</div>
         <div class="home-top-text">我们是麦趣</div>
-        <span class="home-bottom-text" style="white-space: pre-wrap">{{
-          introduction
-        }}</span>
+        <div class="home-bottom-text" style="white-space: pre-wrap">
+          {{ introduction }}
+        </div>
       </div>
       <div class="main-card">
         <div class="main-card-row">
           <div class="main-card-content">
-            <img src="@/assets/icons8-octahedron.svg" style="width: 30%" />
+            <img src="@/assets/icons8-octahedron.svg" style="width: 25%" />
             <span>测评大厅</span>
-            <router-link to="/products" style="width: 40%">
+            <router-link to="/products" style="width: 33%">
               <img src="@/assets/btn_login.svg" style="width: 100%" />
             </router-link>
           </div>
@@ -22,9 +22,9 @@
             <div class="line" />
           </div>
           <div class="main-card-content">
-            <img src="@/assets/icons8-bot.svg" style="width: 25%" />
+            <img src="@/assets/icons8-bot.svg" style="width: 20%" />
             <span>AI咨询</span>
-            <router-link to="/" style="width: 40%">
+            <router-link to="/" style="width: 33%">
               <img src="@/assets/btn_login(1).svg" style="width: 100%" />
             </router-link>
           </div>
@@ -71,7 +71,7 @@ export default defineComponent({
   width: 100%;
   height: 90vh;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: saturate(100%) blur(40px);
+  backdrop-filter: blur(40px);
   opacity: 1;
   border-radius: 70px 70px 0px 0px;
   overflow: hidden;
@@ -81,24 +81,26 @@ export default defineComponent({
   position: relative;
   width: 30%;
   height: 40vh;
+  margin-bottom: 0;
   flex: 1;
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  margin: 0 12%;
+  justify-content: center;
+  margin: 0 8%;
 }
 
 .main-card-content > * {
   position: relative;
   padding: 0;
-  margin: 2.5vh auto;
+  margin: 2.2vh auto;
 }
 
 .main-card-content > span {
   text-align: center;
   /* width: 130px; */
   height: 40px;
-  font-size: 5vh;
+  font-size: 4vh;
   font-family: OPPOSans;
   font-weight: 600;
   line-height: 47px;
@@ -133,8 +135,6 @@ export default defineComponent({
 .home-bottom-text {
   position: relative;
   text-align: left;
-  right: 0;
-  margin: 0 auto;
   top: 14%;
   height: 4vh;
   font-size: 1.9vh;
@@ -158,7 +158,8 @@ export default defineComponent({
 
   .home-bottom-text {
     font-size: 1.5vh;
-    line-height: 1.4vh;
+    top: 14%;
+    line-height: 2.2vh;
     text-align: center;
   }
 
@@ -167,10 +168,11 @@ export default defineComponent({
   }
 
   .main-card-row {
-    top: 3vh;
+    top: 1vh;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
   }
   .line {
     height: 0px;

@@ -48,61 +48,61 @@ export default defineComponent({
         {
           index: 0,
           name: "倾听技能",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/1.webp",
           target_url: "https://jinshuju.net/f/Msw3Fx",
         },
         {
           index: 1,
           name: "恋爱人格",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/2.webp",
           target_url: "https://jinshuju.net/f/tJduAB",
         },
         {
           index: 2,
           name: "霍兰德职业兴趣",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/3.webp",
           target_url: "https://jinshuju.net/f/ah8wl8",
         },
         {
           index: 3,
           name: "职业锚",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/4.webp",
           target_url: "https://jinshuju.net/f/l34Hko",
         },
         {
           index: 4,
           name: "MBTI职业",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/5.webp",
           target_url: "https://jinshuju.net/f/cXuolF",
         },
         {
           index: 5,
           name: "谈判综合能力",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/6.webp",
           target_url: "https://jinshuju.net/f/iOhRKP",
         },
         {
           index: 6,
           name: "决策与判断能力",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/7.webp",
           target_url: "https://jinshuju.net/f/Q4Z9QL",
         },
         {
           index: 7,
           name: "合作与竞争能力",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/8.webp",
           target_url: "https://jinshuju.net/f/MNlpOJ",
         },
         {
           index: 8,
           name: "人际关系能力",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/9.webp",
           target_url: "https://jinshuju.net/f/bEm8Ag",
         },
         {
           index: 9,
           name: "创造力",
-          backgd_url: "http://",
+          backgd_url: "https://img-cdn.dustella.net/sundry/10.webp",
           target_url: "https://jinshuju.net/f/H6psw9",
         },
       ],
@@ -131,7 +131,7 @@ export default defineComponent({
   width: 200px;
   height: 300px;
   margin: 3vh auto;
-  border: 1px solid;
+  // border: 1px solid;
   border-radius: 3vh;
 }
 
@@ -149,7 +149,7 @@ export default defineComponent({
   height: 80%;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.39);
-  margin: 70% 0 0 0;
+  margin: 80% 0 0 0;
 }
 
 .product-card-btn {

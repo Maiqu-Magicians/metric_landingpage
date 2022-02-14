@@ -11,23 +11,23 @@
           justify="space-around"
           style="position: relative; top: 15vh"
         >
-          <el-col :span="1" />
-          <el-col :span="8">
+          <el-col :span="1" :xs="0" />
+          <el-col :span="8" :xs="0">
             <div class="main-card-content">
               <slot name="left-content"></slot>
             </div>
           </el-col>
-          <el-col :span="2">
+          <el-col :span="2" :xs="0">
             <div class="line" />
             <span class="small-ch">或</span>
             <div class="line" />
           </el-col>
-          <el-col :span="8">
+          <el-col :span="8" :xs="24">
             <div class="main-card-content-right">
               <slot name="right-content"></slot>
             </div>
           </el-col>
-          <el-col :span="1" />
+          <el-col :span="1" :xs="0" />
         </el-row>
       </div>
     </el-col>
