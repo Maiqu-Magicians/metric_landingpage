@@ -1,13 +1,34 @@
-/* @font-face {
+@font-face {
     font-family: 'OPPOSans'; 
-    src: url('./OPPOSans-R/OPPOSans-R-2.ttf');
+    src: url('./OPPOSans-R.woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'OPPOSans-H'; 
     src: 
-    url('./OPPOSans-H/OPPOSans-H-2.ttf');
+    url('./OPPOSans-H.woff');
     font-weight: normal;
     font-style: normal;
-} */
+}
+@font-face {
+    font-family: 'OPPOSans-M'; 
+    src: 
+    url('./OPPOSans-M.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OPPOSans-L'; 
+    src: 
+    url('./OPPOSans-L.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OPPOSans-B'; 
+    src: 
+    url('./OPPOSans-B.woff');
+    font-weight: normal;
+    font-style: normal;
+}

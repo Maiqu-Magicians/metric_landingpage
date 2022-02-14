@@ -14,7 +14,7 @@
           <div class="main-card-content">
             <img src="@/assets/icons8-octahedron.svg" style="width: 30%" />
             <span>测评大厅</span>
-            <router-link to="/" style="width: 40%">
+            <router-link to="/products" style="width: 40%">
               <img src="@/assets/btn_login.svg" style="width: 100%" />
             </router-link>
           </div>
@@ -123,7 +123,7 @@ export default defineComponent({
   /* margin: 0 auto; */
   height: 7vh;
   font-size: 4.3vh;
-  font-family: OPPOSans;
+  font-family: OPPOSans-M;
   font-weight: 900;
   line-height: 13vh;
   color: #ffffff;
@@ -138,7 +138,7 @@ export default defineComponent({
   top: 14%;
   height: 4vh;
   font-size: 1.9vh;
-  font-family: OPPOSans;
+  font-family: OPPOSans-L;
   font-weight: 530;
   line-height: 3.5vh;
   color: #ffffff;
@@ -187,6 +187,7 @@ export default defineComponent({
     line-height: 0;
     /* left: 0; */
     font-size: 3vh;
+    font-family: OPPOSans-L;
   }
 }
 </style>

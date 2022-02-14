@@ -67,8 +67,9 @@ import changeUsername from "@/components/dialogs/changeUsername.vue";
 export default defineComponent({
   components: { changeUsername },
   mounted() {
-    this.username = "Dustella";
-    this.phone = "1111";
+    this.username = "示例账户名";
+    this.phone = "188********";
+    (this.email = "mail@mail.com"), (this.wxid = "******");
   },
   methods: {
     changeWX() {

@@ -1,8 +1,8 @@
 <template>
   <div class="thisheader">
     <el-row justify="center" align="middle" style="height: 100%">
-      <el-col :span="1" />
-      <el-col :span="3" :xs="10">
+      <el-col :span="1" :xs="0" />
+      <el-col :span="3" :xs="11">
         <div class="topbar-title">
           <router-link to="/" class="topbar-title-link"
             >麦趣 MyMetric</router-link
@@ -23,7 +23,7 @@
           >
         </div>
       </el-col>
-      <el-col :span="11" :xs="3" />
+      <el-col :span="11" :xs="0" />
       <el-col :span="3" :xs="10" v-if="!isLoggedIn">
         <el-button
           type="default"
@@ -50,7 +50,7 @@
           @click="pushCenter"
         ></el-avatar>
       </el-col>
-      <el-col :span="1" />
+      <el-col :span="1" :xs="0" />
     </el-row>
   </div>
 </template>

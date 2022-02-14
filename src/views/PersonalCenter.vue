@@ -1,7 +1,7 @@
 <template>
   <el-row justify="space-between">
-    <el-col :span="3"></el-col>
-    <el-col :span="5">
+    <el-col :span="3" :xs="1"></el-col>
+    <el-col :span="5" :xs="0">
       <div class="left-card">
         <div class="left-card-content">
           <div class="head-icon">
@@ -29,10 +29,10 @@
         </div>
       </div>
     </el-col>
-    <el-col :span="9">
+    <el-col :span="9" :xs="18">
       <router-view />
     </el-col>
-    <el-col :span="3"></el-col>
+    <el-col :span="3" :xs="1"></el-col>
   </el-row>
 </template>
 
