@@ -73,39 +73,25 @@ export default defineComponent({
 }
 
 .main-card-content {
-  /* width: 40%; */
-  /* height: 40%; */
   flex: 1;
   display: flex;
   flex-flow: column;
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  -webkit-transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   position: relative;
-  margin: 0 auto;
-  padding: 0 0;
+  margin: 40% auto;
 }
 
 .main-card-content-right {
   width: 100%;
-  /* height: 40%; */
   position: relative;
   flex: 1;
   display: flex;
   flex-flow: column;
   overflow: hidden;
   justify-content: center;
-  // align-items:flex-start;
-  left: 40%;
-  top: 45%;
-
-  transform: translate(-50%, -50%);
-
-  -webkit-transform: translate(-50%, -50%);
+  align-items: center;
 }
 
 /* 输入框样式 */

@@ -6,67 +6,7 @@
       <button @click="pushLogin">微信登陆</button>
     </template>
     <template v-slot:right-content>
-      <el-form
-        :model="ruleForm"
-        :rules="rules"
-        ref="ruleForm"
-        label-width="100px"
-        class="demo-ruleForm"
-      >
-        <el-form-item prop="tel">
-          <el-input placeholder="账号" v-model="ruleForm.tel"></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input
-            style="width: 55%; height: 60px"
-            placeholder="验证码"
-            v-model="ruleForm.code"
-          ></el-input>
-          <el-button
-            style="
-              position: relative;
-              left: 10%;
-              width: 35%;
-              height: 60px;
-              background-color: #55585a + 7a;
-              border: 5px white;
-            "
-            round
-            @click="getCode()"
-            :disabled="totalTime < 60"
-            >{{ btn_content }}</el-button
-          >
-        </el-form-item>
-
-        <el-form-item>
-          <el-button
-            type="primary"
-            style="width: 100%; height: 60px"
-            round
-            @click="submitForm()"
-            >登陆</el-button
-          >
-        </el-form-item>
-      </el-form>
-      <div
-        style="
-          display: flex;
-          flex: 1;
-          flex-flow: row nowarp;
-          justify-content: space-between;
-        "
-      >
-        <el-link
-          style="
-            margin-left: 100px;
-            height: 3vh;
-            font-weight: bold;
-            color: #ffffff;
-          "
-          href="/register"
-          >还没账号？马上注册</el-link
-        >
-      </div>
+      <login-form type="loginWithCode" />
     </template>
   </double-col-card>
 </template>
@@ -74,11 +14,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import doubleColCard from "@/components/doubleColCard.vue";
+import loginForm from "@/components/loginForm.vue";
 
 export default defineComponent({
   name: "Login",
   components: {
     doubleColCard,
+    loginForm,
   },
   data() {
     return {
