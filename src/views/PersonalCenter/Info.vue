@@ -104,22 +104,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.btn {
-  width: 80%;
-  height: 100%;
-  background: rgba(65, 153, 255, 0.39);
-  opacity: 1;
-  border-radius: 1vh;
-  text-align: center;
-  font-size: 2.3vh;
-  line-height: 10+0%;
-}
-
 .info-col {
   display: block;
   height: 13vh;
-  /* flex-direction: row;
-  flex: 1; */
 }
 .info-title > * {
   font-size: 2.3vh;

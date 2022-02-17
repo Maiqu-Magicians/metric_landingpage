@@ -5,7 +5,7 @@
       <button @click="pushLogin">微信登陆</button>
     </template>
     <template v-slot:right-content>
-      <login-form type="login" />
+      <login-form type="loginWithCode" />
     </template>
   </double-col-card>
 </template>
@@ -22,24 +22,17 @@ export default defineComponent({
     loginForm,
   },
   methods: {
-    pushLogin() {
-      this.$router.push("/login");
-    },
     submitForm() {
       console.log("login");
     },
-  },
-  data() {
-    return {};
+    pushLogin() {
+      this.$router.push("/login");
+    },
   },
 });
 </script>
 
 <style scoped lang="scss">
-.main-card-content > * {
-  position: relative;
-  margin: 3vh auto;
-}
 /* 添加button样式 */
 .main-card-content > button {
   width: 200px;

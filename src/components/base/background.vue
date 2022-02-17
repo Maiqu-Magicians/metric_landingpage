@@ -19,12 +19,13 @@ export default defineComponent({});
       /* to top, */ 180deg,
       rgba(70, 51, 51, 0) 0%,
       rgba(70, 51, 51, 0) 35%,
-      #5398f7 80%,
+      #5398f7 70%,
       #5398f7 100%
     ),
     url("../../assets/back.webp");
   opacity: 1;
   background-size: cover;
+  background-position: right;
   background-repeat: no-repeat;
 }
 

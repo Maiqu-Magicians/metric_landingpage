@@ -69,7 +69,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .card-bottom-content {
   display: flex;
   flex-direction: column;
@@ -141,27 +141,24 @@ export default defineComponent({
   left: 5vh;
   border: 1px solid white;
   border-radius: 50%;
-}
-
-.continue-btn > img {
-  position: relative;
-  width: 25%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, 75%);
+  & > img {
+    position: relative;
+    width: 25%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 75%);
+  }
 }
 
 .table {
   position: relative;
   top: 3vh;
-  /* border: 1px solid white; */
-}
-
-.table > tr > * {
-  font-size: 2.3vh;
-  color: #ffffff;
-  text-align: center;
-  font-weight: normal;
+  & > tr > * {
+    font-size: 2.3vh;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+  }
 }
 
 .time-spe {

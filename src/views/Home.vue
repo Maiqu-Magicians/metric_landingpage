@@ -54,7 +54,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .home-top-content {
   height: 30vh;
 }
@@ -88,24 +88,21 @@ export default defineComponent({
   overflow: hidden;
   justify-content: center;
   margin: 0 8%;
-}
-
-.main-card-content > * {
-  position: relative;
-  padding: 0;
-  margin: 2.2vh auto;
-}
-
-.main-card-content > span {
-  text-align: center;
-  /* width: 130px; */
-  height: 40px;
-  font-size: 4vh;
-  font-family: OPPOSans;
-  font-weight: 600;
-  line-height: 47px;
-  color: #ffffff;
-  opacity: 1;
+  & > * {
+    position: relative;
+    padding: 0;
+    margin: 2.2vh auto;
+  }
+  & > span {
+    text-align: center;
+    height: 40px;
+    font-size: 4vh;
+    font-family: OPPOSans;
+    font-weight: 600;
+    line-height: 47px;
+    color: #ffffff;
+    opacity: 1;
+  }
 }
 
 .main-card-row {
@@ -122,7 +119,6 @@ export default defineComponent({
   position: relative;
   text-align: left;
   right: 0;
-  /* margin: 0 auto; */
   height: 7vh;
   font-size: 4.3vh;
   font-family: OPPOSans-M;

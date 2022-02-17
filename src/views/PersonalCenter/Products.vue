@@ -131,6 +131,5 @@ export default defineComponent({
   top: 10%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  /* border: 1px solid; */
 }
 </style>

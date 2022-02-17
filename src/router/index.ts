@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import Home from "../views/Home.vue";
-import Login from "../views/Login.vue";
-import Register from "../views/Register.vue";
-import personalCenter from "../views/PersonalCenter.vue";
+import Login from "../views/Login/Login.vue";
+import Register from "../views/Login/Register.vue";
+import personalCenter from "../views/PersonalCenter/PersonalCenter.vue";
 import Info from "../views/PersonalCenter/Info.vue";
 import Product from "../views/PersonalCenter/Products.vue";
 import Record from "../views/PersonalCenter/Record.vue";
-import Loginwithcode from "../views/Loginwithcode.vue";
-import SetPassword from "../views/SetPassword.vue";
-import FirstSet from "../views/FirstSet.vue";
-import FindPassword from "../views/FindPassword.vue";
-import AllProducts from "../views/Products.vue";
+import Loginwithcode from "../views/Login/Loginwithcode.vue";
+import SetPassword from "../views/SetPassword/SetPassword.vue";
+import FirstSet from "../views/SetPassword/FirstSet.vue";
+import FindPassword from "../views/SetPassword/FindPassword.vue";
+import AllProducts from "../views/Products/Products.vue";
 import ManyProducts from "../components/manyProducts.vue";
 
 const routes: Array<RouteRecordRaw> = [
