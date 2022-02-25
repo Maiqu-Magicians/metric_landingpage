@@ -73,7 +73,7 @@ export default defineComponent({
   opacity: 1;
   border-radius: 10px;
 }
-::v-deep .el-input__inner {
+:veep(el-input__inner) {
   position: relative;
   margin: 10% auto 3%;
   height: 60px;
@@ -83,7 +83,7 @@ export default defineComponent({
   opacity: 0.5;
 }
 /* 按钮样式 */
-::v-deep .el-button__inner {
+:deep(.el-button__inner) {
   height: 60px;
   width: 80%;
   color: rgb(28, 32, 255);

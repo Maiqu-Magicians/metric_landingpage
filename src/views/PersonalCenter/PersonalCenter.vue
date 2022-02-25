@@ -36,7 +36,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   mounted() {
     this.getPath();
-    this.avtr_src = "@/assets/icons8-user.svg";
+    this.avtr_src = "../../assets/icons8-user.svg";
   },
   data() {
     return {

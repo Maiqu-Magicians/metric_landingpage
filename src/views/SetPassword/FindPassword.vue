@@ -128,8 +128,6 @@ export default defineComponent({
 }
 
 .main-card-content {
-  /* width: 40%; */
-  /* height: 40%; */
   flex: 1;
   display: flex;
   flex-flow: column;
@@ -146,7 +144,7 @@ export default defineComponent({
 }
 
 /* 输入框样式 */
-::v-deep .el-input__inner {
+:deep(.el-input__inner) {
   height: 60px;
   width: 350px;
   border-radius: 10px;
@@ -154,7 +152,7 @@ export default defineComponent({
   opacity: 0.5;
 }
 /* 按钮样式 */
-::v-deep .el-button__inner {
+:deep(.el-button__inner) {
   height: 60px;
   width: 1800px;
   color: rgb(28, 32, 255);

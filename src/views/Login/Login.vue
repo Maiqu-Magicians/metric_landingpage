@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import doubleColCard from "@/components/doubleColCard.vue";
-import loginForm from "@/components/loginForm.vue";
+import doubleColCard from "../../components/doubleColCard.vue";
+import loginForm from "../../components/loginForm.vue";
 
 export default defineComponent({
   name: "Login",

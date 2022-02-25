@@ -62,7 +62,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import changeUsername from "@/components/dialogs/changeUsername.vue";
+import changeUsername from "../../components/dialogs/changeUsername.vue";
 
 export default defineComponent({
   components: { changeUsername },

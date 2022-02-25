@@ -12,20 +12,20 @@
       <div class="main-card">
         <div class="main-card-row">
           <div class="main-card-content">
-            <img src="@/assets/icons8-octahedron.svg" style="width: 25%" />
+            <img src="../assets/icons8-octahedron.svg" style="width: 25%" />
             <span>测评大厅</span>
             <router-link to="/products" style="width: 33%">
-              <img src="@/assets/btn_login.svg" style="width: 100%" />
+              <img src="../assets/btn_login.svg" style="width: 100%" />
             </router-link>
           </div>
           <div>
             <div class="line" />
           </div>
           <div class="main-card-content">
-            <img src="@/assets/icons8-bot.svg" style="width: 20%" />
+            <img src="../assets/icons8-bot.svg" style="width: 20%" />
             <span>AI咨询</span>
             <router-link to="/" style="width: 33%">
-              <img src="@/assets/btn_login(1).svg" style="width: 100%" />
+              <img src="../assets/btn_login(1).svg" style="width: 100%" />
             </router-link>
           </div>
         </div>
@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import mainFooter from "@/components/base/footer.vue";
+import mainFooter from "../components/base/footer.vue";
 
 export default defineComponent({
   name: "Home",

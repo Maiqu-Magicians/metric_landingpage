@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="8">
         <div class="continue-btn" @click="continue_test">
-          <img src="@/assets/continue.svg" />
+          <img src="../../assets/continue.svg" />
         </div>
       </el-col>
     </el-row>

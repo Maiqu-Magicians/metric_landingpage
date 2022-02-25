@@ -18,7 +18,7 @@
           <div class="product-card-bottom">
             <div class="product-card-name">{{ i.name }}</div>
             <img
-              src="@/assets/btn_login.svg"
+              src="../../assets/btn_login.svg"
               class="product-card-btn"
               style="cursor: pointer"
               @click="openn(i.target_url)"

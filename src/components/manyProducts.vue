@@ -20,7 +20,7 @@
               {{ i.name }}
             </div>
             <img
-              src="@/assets/btn_login.svg"
+              src="../assets/btn_login.svg"
               class="product-card-btn"
               style="cursor: pointer"
               @click="openn(i.target_url)"
