@@ -1,8 +1,8 @@
 <template>
   <div class="thisheader">
-    <el-row justify="center" align="middle" style="height: 100%">
-      <el-col :span="1" :xs="0" />
-      <el-col :span="3" :xs="11">
+    <el-row justify="center" style="height: 100%">
+      <el-col :span="3" :xs="1" />
+      <el-col :span="3" :xs="14">
         <div class="topbar-title">
           <router-link to="/" class="topbar-title-link"
             >麦趣 MyMetric</router-link
@@ -23,8 +23,8 @@
           >
         </div>
       </el-col>
-      <el-col :span="11" :xs="0" />
-      <el-col :span="3" :xs="10" v-if="!isLoggedIn">
+      <el-col :span="10" :xs="0" />
+      <el-col :span="3" :xs="8" v-if="!isLoggedIn">
         <el-button
           type="default"
           round
@@ -42,15 +42,17 @@
           >登录</el-button
         >
       </el-col>
-      <el-col :span="3" :xs="10" v-else>
-        <el-avatar
-          :size="25"
-          :src="avtr_src"
-          class="avtr"
-          @click="pushCenter"
-        ></el-avatar>
+      <el-col :span="3" :xs="7" v-else>
+        <div>
+          <el-avatar
+            :size="25"
+            :src="avtr_src"
+            class="avtr"
+            @click="pushCenter"
+          ></el-avatar>
+        </div>
       </el-col>
-      <el-col :span="1" :xs="0" />
+      <el-col :span="3" :xs="1" />
     </el-row>
   </div>
 </template>
@@ -81,29 +83,27 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .avtr {
   position: relative;
-  margin-right: 0;
-  transform: translate(600%, -50%);
-}
-
-.avtr:hover {
-  opacity: 0.7;
+  transform: translate(-50%, 50%);
+  float: right;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .topbar-title-link {
-  height: 10vh;
+  height: 7vh;
   font-size: 2.7vh;
   font-family: OPPOSans;
   font-weight: 800;
-  line-height: 24px;
   color: #ffffff;
   opacity: 1;
   text-decoration: none;
   text-align: left;
   display: block;
-  line-height: 200%;
+  line-height: 5.3vh;
 }
 .topbar-prd-link {
   height: 10vh;
@@ -121,8 +121,7 @@ export default defineComponent({
 
 .topbar-title {
   position: relative;
-  padding: auto;
-  margin: 0 auto;
+  height: 7vh;
 }
 
 .topbar-buy {
@@ -148,13 +147,11 @@ export default defineComponent({
   width: 100vw;
   background: rgba(255, 255, 255, 0.39);
   backdrop-filter: saturate(100%) blur(20px);
-  /* border: 2px solid; */
 }
 
 .btn-signup {
   position: relative;
   margin: 0 auto;
-  /* top: 1.2vh; */
   width: 4vw;
   transform: translate(-50%, -50%);
   height: 3vh;

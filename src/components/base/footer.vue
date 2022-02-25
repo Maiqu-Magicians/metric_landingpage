@@ -22,10 +22,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.el-link {
+:deep(.el-link--inner) {
   font-size: 1.7vh;
   color: #ffffff;
+  font-family: OPPOSans;
 }
+
 span {
   font-size: 1.7vh;
   color: #ffffff;

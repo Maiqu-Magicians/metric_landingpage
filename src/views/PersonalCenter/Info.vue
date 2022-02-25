@@ -111,6 +111,7 @@ export default defineComponent({
 .info-title > * {
   font-size: 2.3vh;
   color: white;
+  font-family: OPPOSans;
 }
 
 .right-card-content {

@@ -121,17 +121,14 @@ export default defineComponent({
   flex-flow: row wrap;
   flex-wrap: wrap;
   align-items: flex-start;
-  //   flex-direction: column;
   justify-content: flex-start;
-  //   overflow:scroll
 }
 
 .product-card {
   position: relative;
   width: 200px;
   height: 300px;
-  margin: 3vh auto;
-  // border: 1px solid;
+  margin: 0px 0px 60px 20px;
   border-radius: 3vh;
 }
 

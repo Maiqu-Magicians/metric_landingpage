@@ -3,10 +3,12 @@
   <div class="background-bottom"></div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
-export default defineComponent({});
+export default defineComponent({
+  name: "Bkgd",
+});
 </script>
 
 <style scoped>

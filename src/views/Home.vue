@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 90vh" justify="space-around">
-    <el-col :span="1" />
-    <el-col :span="19">
+    <el-col :span="3" />
+    <el-col :span="18">
       <div class="home-top-content">
         <div class="home-top-text">Hi~</div>
         <div class="home-top-text">我们是麦趣</div>
@@ -31,7 +31,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :span="1" />
+    <el-col :span="3" />
   </el-row>
   <main-footer />
 </template>

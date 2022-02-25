@@ -31,7 +31,7 @@
             </div>
           </el-col>
           <el-col :span="1" :xs="0" />
-          <el-col :span="18" :xs="24" class="right-content">
+          <el-col :span="19" :xs="24" class="right-content">
             <router-view />
           </el-col>
         </el-row>
@@ -104,6 +104,7 @@ export default defineComponent({
   margin: 0;
   left: 0;
   right: 0;
+  // border: 1 solid #ffffff;
 }
 .top-carousel-content {
   height: 350px;

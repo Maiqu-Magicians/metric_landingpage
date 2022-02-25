@@ -100,7 +100,6 @@ export default defineComponent({
     text-decoration: none;
     text-align: center;
     color: #ffffff;
-    /* line-height: %; */
   }
 }
 
@@ -135,7 +134,7 @@ export default defineComponent({
     width: 54px;
     height: 24px;
     font-size: 18px;
-    font-family: OPPOSans;
+    font-family: OPPOSans-M;
     font-weight: 800;
     line-height: 24px;
     color: #ffffff;
