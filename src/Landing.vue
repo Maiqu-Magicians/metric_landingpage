@@ -1,46 +1,16 @@
 <template>
   <Backgd />
   <MainHeader />
-  <transition name="fade" mode="out-in">
-    <router-view />
-  </transition>
+  <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import MainHeader from "./components/base/header.vue";
 import Backgd from "./components/base/background.vue";
-
-export default defineComponent({
-  components: {
-    MainHeader,
-    Backgd,
-  },
-});
 </script>
 
 <style scoped>
 .landing-main {
   height: 92vh;
-}
-.fade-enter-from {
-  opacity: 0;
-  /* backdrop-filter: saturate(100%) blur(30px); */
-}
-.fade-leave-to {
-  opacity: 0;
-  /* backdrop-filter: saturate(100%) blur(30px); */
-}
-.fade-enter-active {
-  transition: opacity 0.5s ease;
-  /* backdrop-filter: saturate(100%) blur(30px); */
-}
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-  /* backdrop-filter: saturate(100%) blur(30px); */
-}
-
-.fade-enter-to {
-  opacity: 1;
 }
 </style>

@@ -70,6 +70,18 @@ export default defineComponent({
   backdrop-filter: saturate(100%) blur(30px);
   opacity: 1;
   border-radius: 30px 30px 0px 0px;
+  animation-name: card-fade-in;
+  animation-duration: 3s;
+}
+
+@keyframes card-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(0, -50%);
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 .main-card-content {

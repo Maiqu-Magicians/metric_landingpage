@@ -2,14 +2,14 @@
   <el-row style="height: 90vh" justify="space-around">
     <el-col :span="3" />
     <el-col :span="18">
-      <div class="home-top-content">
+      <div class="home-top-content fade-in">
         <div class="home-top-text">Hi~</div>
         <div class="home-top-text">我们是麦趣</div>
         <div class="home-bottom-text" style="white-space: pre-wrap">
           {{ introduction }}
         </div>
       </div>
-      <div class="main-card">
+      <div class="main-card fade-in">
         <div class="main-card-row">
           <div class="main-card-content">
             <img src="../assets/icons8-octahedron.svg" style="width: 25%" />
@@ -36,22 +36,14 @@
   <main-footer />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import mainFooter from "../components/base/footer.vue";
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "Home",
-  components: {
-    mainFooter,
-  },
-  data() {
-    return {
-      introduction:
-        "麦趣，集游戏化行为测评GBA和AI心理轻咨询于一体，\n助力青年求职者在不确定的日子里多一些向内探索。",
-    };
-  },
-});
+let isFade = ref(false);
+
+const introduction =
+  "麦趣，集游戏化行为测评GBA和AI心理轻咨询于一体，\n助力青年求职者在不确定的日子里多一些向内探索。";
 </script>
 
 <style scoped lang="scss">
@@ -75,6 +67,35 @@ export default defineComponent({
   opacity: 1;
   border-radius: 70px 70px 0px 0px;
   overflow: hidden;
+}
+
+.fade-in {
+  animation-name: card-fade-in;
+  animation-duration: 1000ms;
+}
+
+.fade-out {
+  animation-name: card-fade-out;
+  animation-duration: 1000ms;
+}
+
+@keyframes card-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(0, 50%);
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes card-fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    transform: translate(0, 50%);
+    opacity: 0;
+  }
 }
 
 .main-card-content {

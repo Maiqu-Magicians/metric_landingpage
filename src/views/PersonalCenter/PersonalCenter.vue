@@ -54,6 +54,24 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@keyframes card-fade-in-lf {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0%);
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes card-fade-in-rt {
+  from {
+    opacity: 0;
+    transform: translate(50%, 0%);
+  }
+  to {
+    opacity: 100%;
+  }
+}
 .avtr-img {
   position: relative;
   width: 30%;
@@ -157,6 +175,8 @@ export default defineComponent({
   opacity: 1;
   border-radius: 30px;
   overflow: hidden;
+    animation-name: card-fade-in-lf;
+  animation-duration: 1000ms;
 }
 
 .right-card {
@@ -169,5 +189,7 @@ export default defineComponent({
   opacity: 1;
   border-radius: 30px;
   overflow: hidden;
+      animation-name: card-fade-in-rt;
+  animation-duration: 1000ms;
 }
 </style>

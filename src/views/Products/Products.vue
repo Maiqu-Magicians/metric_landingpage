@@ -2,7 +2,7 @@
   <el-row style="height: 90vh" justify="center">
     <el-col :span="1" />
     <el-col :span="21" type="flex">
-      <div class="top-carousel-content">
+      <div class="top-carousel-content fade-in-up">
         <el-carousel :interval="4000" :height="topheight" width="1000px">
           <el-carousel-item v-for="item in car" :key="item.index">
             <div
@@ -22,7 +22,7 @@
       <div>
         <el-row :justify="productsJustify" :gutter="0">
           <el-col :span="4" :xs="0">
-            <div class="menu-card">
+            <div class="menu-card fade-in-lf">
               <div class="option-btn" v-for="i of classes" :key="i.index">
                 <router-link style="text-decoration: none" :to="i.route">
                   {{ i.name }}
@@ -31,7 +31,7 @@
             </div>
           </el-col>
           <el-col :span="1" :xs="0" />
-          <el-col :span="19" :xs="24" class="right-content">
+          <el-col :span="19" :xs="24" class="right-content fade-in-rt">
             <router-view />
           </el-col>
         </el-row>
@@ -110,6 +110,50 @@ export default defineComponent({
   height: 350px;
   margin: 2vh auto;
 }
+
+.fade-in-lf {
+  animation: fade-lf;
+  animation-duration: 1000ms;
+}
+
+@keyframes fade-lf {
+  from {
+    opacity: 0;
+    transform: translate(-100%, 0%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in-rt {
+  animation: fade-rt;
+  animation-duration: 1000ms;
+}
+
+@keyframes fade-rt {
+  from {
+    opacity: 0;
+    transform: translate(50%, 0%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in-up {
+  animation: fade-up;
+  animation-duration: 1000ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate(0%, -80%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media only screen and (max-width: 1081px) {
   .top-carousel-content {
     height: 200px;
@@ -123,16 +167,6 @@ export default defineComponent({
   line-height: 200px;
   margin: 0;
 }
-
-// .el-carousel__item:nth-child(2n) {
-//   // background-image:url("C://Users//17100//Desktop//图片//琦玉老师.jpg");
-//   width: 1500px;
-// }
-
-// .el-carousel__item:nth-child(2n + 1) {
-//   background-color: #d3dce6;
-// }
-
 .menu-card {
   width: 100%;
   height: 40vh;
