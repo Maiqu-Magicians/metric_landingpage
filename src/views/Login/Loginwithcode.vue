@@ -10,26 +10,17 @@
   </double-col-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { useRouter } from "vue-router";
 import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
 
-export default defineComponent({
-  name: "Login",
-  components: {
-    doubleColCard,
-    loginForm,
-  },
-  methods: {
-    submitForm() {
-      console.log("login");
-    },
-    pushLogin() {
-      this.$router.push("/login");
-    },
-  },
-});
+const submitForm = () => {
+  console.log("login");
+};
+const pushLogin = () => {
+  useRouter().push("/login");
+};
 </script>
 
 <style scoped lang="scss">

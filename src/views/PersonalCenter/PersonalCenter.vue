@@ -30,27 +30,8 @@
   </el-row>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  mounted() {
-    this.getPath();
-    this.avtr_src = "../../assets/icons8-user.svg";
-  },
-  data() {
-    return {
-      lala: "",
-      avtr_src: "",
-    };
-  },
-  methods: {
-    getPath() {
-      var ppp = this.$route.path;
-      console.log(ppp);
-    },
-  },
-});
+<script lang="ts" setup>
+const avtr_src = "../../assets/icons8-user.svg";
 </script>
 
 <style scoped lang="scss">
@@ -175,7 +156,7 @@ export default defineComponent({
   opacity: 1;
   border-radius: 30px;
   overflow: hidden;
-    animation-name: card-fade-in-lf;
+  animation-name: card-fade-in-lf;
   animation-duration: 1000ms;
 }
 
@@ -189,7 +170,7 @@ export default defineComponent({
   opacity: 1;
   border-radius: 30px;
   overflow: hidden;
-      animation-name: card-fade-in-rt;
+  animation-name: card-fade-in-rt;
   animation-duration: 1000ms;
 }
 </style>

@@ -12,15 +12,6 @@
     </el-row>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "footer",
-});
-</script>
-
 <style scoped>
 :deep(.el-link--inner) {
   font-size: 1.7vh;

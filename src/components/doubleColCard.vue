@@ -71,13 +71,13 @@ export default defineComponent({
   opacity: 1;
   border-radius: 30px 30px 0px 0px;
   animation-name: card-fade-in;
-  animation-duration: 3s;
+  animation-duration: 1s;
 }
 
 @keyframes card-fade-in {
   from {
     opacity: 0;
-    transform: translate(0, -50%);
+    transform: translate(0, 50%);
   }
   to {
     opacity: 100%;

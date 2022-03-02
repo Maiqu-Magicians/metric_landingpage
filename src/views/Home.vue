@@ -38,9 +38,6 @@
 
 <script lang="ts" setup>
 import mainFooter from "../components/base/footer.vue";
-import { ref } from "vue";
-
-let isFade = ref(false);
 
 const introduction =
   "麦趣，集游戏化行为测评GBA和AI心理轻咨询于一体，\n助力青年求职者在不确定的日子里多一些向内探索。";

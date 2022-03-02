@@ -60,46 +60,28 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref, reactive } from "vue";
 import changeUsername from "../../components/dialogs/changeUsername.vue";
 
-export default defineComponent({
-  components: { changeUsername },
-  mounted() {
-    this.username = "示例账户名";
-    this.phone = "188********";
-    (this.email = "mail@mail.com"), (this.wxid = "******");
-  },
-  methods: {
-    changeWX() {
-      console.log("changeWX");
-    },
-    changeEmail() {
-      console.log("changeEmail");
-    },
-    changePhone() {
-      console.log("changePhone");
-    },
-    changeUsername() {
-      console.log("changeUsername");
-    },
-    uploadAvtr() {
-      console.log("uploadAvtr");
-    },
-  },
-  data() {
-    return {
-      avtr_src: "",
-      username: "",
-      email: "",
-      wxid: "",
-      phone: "",
-      info: {
-        avtr_src: "",
-      },
-    };
-  },
+const changeWX = () => {
+  console.log("changeWX");
+};
+const changeEmail = () => {
+  console.log("changeEmail");
+};
+const changePhone = () => {
+  console.log("changePhone");
+};
+const uploadAvtr = () => {
+  console.log("uploadAvtr");
+};
+const username = ref("");
+const email = ref("");
+const wxid = ref("");
+const phone = ref("");
+const info = reactive({
+  avtr_src: "" as string,
 });
 </script>
 

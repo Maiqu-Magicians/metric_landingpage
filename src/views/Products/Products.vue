@@ -104,7 +104,6 @@ export default defineComponent({
   margin: 0;
   left: 0;
   right: 0;
-  // border: 1 solid #ffffff;
 }
 .top-carousel-content {
   height: 350px;

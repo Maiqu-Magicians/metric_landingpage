@@ -37,45 +37,33 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref, reactive, defineProps } from "vue";
+const props = defineProps({ type: String });
+// eslint-disable-next-line no-undef
+const emits = defineEmits(["pushAuth"]);
 
-export default defineComponent({
-  name: "loginForm",
-  props: { type: String },
-  data() {
-    return {
-      ltype: "text",
-      ruleForm: {
-        userid: "",
-        auth: "",
-      },
-      btn_content: "发送验证码",
-      totalTime: 60,
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log("login");
-    },
-    getCode() {
-      let clock = window.setInterval(() => {
-        this.btn_content = this.totalTime + "s后重新发送";
-        this.totalTime--;
-        if (this.totalTime < 0) {
-          this.totalTime = 60;
-          this.btn_content = "重新发送验证码";
-          window.clearInterval(clock);
-        }
-      }, 1000);
-    },
-  },
-  computed: {
-    postBtnText() {
-      return this.type == "register" ? "注册" : "登录";
-    },
-  },
+const ruleForm = reactive({
+  userid: "",
+  auth: "",
 });
+const btn_content = ref("发送验证码");
+const totalTime = ref(60);
+
+const submitForm = () => {
+  emits("pushAuth", ruleForm.userid, ruleForm.auth);
+};
+const getCode = () => {
+  let clock = window.setInterval(() => {
+    btn_content.value = totalTime.value + "s后重新发送";
+    if (totalTime.value-- < 0) {
+      totalTime.value = 60;
+      btn_content.value = "重新发送验证码";
+      window.clearInterval(clock);
+    }
+  }, 1000);
+};
+const postBtnText = props.type == "register" ? "注册" : "登录";
 </script>
 
 <style scoped lang="scss">

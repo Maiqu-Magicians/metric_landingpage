@@ -2,37 +2,29 @@
   <double-col-card>
     <template v-slot:top-text>欢迎来到麦趣</template>
     <template v-slot:left-content>
-      <button @click="pushLogin">微信登陆</button>
+      <button @click="redirLogin">微信登陆</button>
     </template>
     <template v-slot:right-content>
-      <login-form type="login" />
+      <login-form type="login" @pushAuth="pushLogin" />
     </template>
   </double-col-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
+import { useRouter } from "vue-router";
+import { loginState } from "../../store/loginStatus";
 
-export default defineComponent({
-  name: "Login",
-  components: {
-    doubleColCard,
-    loginForm,
-  },
-  methods: {
-    pushLogin() {
-      this.$router.push("/login");
-    },
-    submitForm() {
-      console.log("login");
-    },
-  },
-  data() {
-    return {};
-  },
-});
+const redirLogin = () => {
+  useRouter().push("/login");
+};
+
+const pushLogin = async (username: string, password: string) => {
+  console.log(username, password);
+  const login_state = loginState();
+  await login_state.doLogin(username, password);
+};
 </script>
 
 <style scoped lang="scss">

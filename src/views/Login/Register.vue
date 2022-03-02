@@ -2,7 +2,7 @@
   <double-col-card>
     <template v-slot:top-text>你好呀 新朋友</template>
     <template v-slot:left-content>
-      <button @click="pushLogin">微信登陆</button>
+      <button>微信登陆</button>
     </template>
     <template v-slot:right-content>
       <login-form type="register" />
@@ -10,23 +10,9 @@
   </double-col-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
-
-export default defineComponent({
-  name: "Login",
-  components: {
-    doubleColCard,
-    loginForm,
-  },
-  methods: {
-    pushLogin() {
-      this.$router.push("/login");
-    },
-  },
-});
 </script>
 
 <style scoped lang="scss">

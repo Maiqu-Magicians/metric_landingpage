@@ -33,40 +33,23 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "Record",
-  mounted() {
-    this.latest_test = "啦啦啦";
-    this.test_records[0].name = "1name";
-    this.test_records[0].time = "1970-1-1";
-    this.test_records[0].status = "status";
+<script lang="ts" setup>
+const latest_test = "";
+const test_records = [
+  {
+    name: "",
+    time: "",
+    status: "",
   },
-  data() {
-    return {
-      latest_test: "",
-      test_records: [
-        {
-          name: "",
-          time: "",
-          status: "",
-        },
-        {
-          name: "",
-          time: "",
-          status: "",
-        },
-      ],
-    };
+  {
+    name: "",
+    time: "",
+    status: "",
   },
-  methods: {
-    continue_test() {
-      alert("continue");
-    },
-  },
-});
+];
+const continue_test = () => {
+  console.log("test_records");
+};
 </script>
 
 <style scoped lang="scss">
