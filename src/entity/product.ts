@@ -1,8 +1,8 @@
 export default class Product {
   constructor(
-    public readonly Name: string,
-    public readonly Id: number,
-    public readonly backUrl: string,
-    public readonly targetUrl: string
+    public readonly name: string,
+    public readonly index: number,
+    public readonly backgd_url: string,
+    public readonly target_url: string
   ) {}
 }

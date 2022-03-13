@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar height="470px">
     <div class="product-content">
-      <div v-for="i of product_list" class="product-card" :key="i.index">
+      <div v-for="i of product_list()" class="product-card" :key="i.index">
         <div
           :style="{
             position: 'relative',
@@ -32,83 +32,16 @@
   </el-scrollbar>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "ManyProducts",
-  methods: {
-    openn(url: string) {
-      window.open(url);
-    },
-  },
-  data() {
-    return {
-      product_list: [
-        {
-          index: 0,
-          name: "倾听技能",
-          backgd_url: "https://img-cdn.dustella.net/sundry/1.webp",
-          target_url: "https://jinshuju.net/f/Msw3Fx",
-        },
-        {
-          index: 1,
-          name: "恋爱人格",
-          backgd_url: "https://img-cdn.dustella.net/sundry/2.webp",
-          target_url: "https://jinshuju.net/f/tJduAB",
-        },
-        {
-          index: 2,
-          name: "霍兰德职业兴趣",
-          backgd_url: "https://img-cdn.dustella.net/sundry/3.webp",
-          target_url: "https://jinshuju.net/f/ah8wl8",
-        },
-        {
-          index: 3,
-          name: "职业锚",
-          backgd_url: "https://img-cdn.dustella.net/sundry/4.webp",
-          target_url: "https://jinshuju.net/f/l34Hko",
-        },
-        {
-          index: 4,
-          name: "MBTI职业",
-          backgd_url: "https://img-cdn.dustella.net/sundry/5.webp",
-          target_url: "https://jinshuju.net/f/cXuolF",
-        },
-        {
-          index: 5,
-          name: "谈判综合能力",
-          backgd_url: "https://img-cdn.dustella.net/sundry/6.webp",
-          target_url: "https://jinshuju.net/f/iOhRKP",
-        },
-        {
-          index: 6,
-          name: "决策与判断能力",
-          backgd_url: "https://img-cdn.dustella.net/sundry/7.webp",
-          target_url: "https://jinshuju.net/f/Q4Z9QL",
-        },
-        {
-          index: 7,
-          name: "合作与竞争能力",
-          backgd_url: "https://img-cdn.dustella.net/sundry/8.webp",
-          target_url: "https://jinshuju.net/f/MNlpOJ",
-        },
-        {
-          index: 8,
-          name: "人际关系能力",
-          backgd_url: "https://img-cdn.dustella.net/sundry/9.webp",
-          target_url: "https://jinshuju.net/f/bEm8Ag",
-        },
-        {
-          index: 9,
-          name: "创造力",
-          backgd_url: "https://img-cdn.dustella.net/sundry/10.webp",
-          target_url: "https://jinshuju.net/f/H6psw9",
-        },
-      ],
-    };
-  },
-});
+<script lang="ts" setup>
+import { manyProducts } from "../store/products";
+const openn = (url: string) => {
+  window.open(url);
+};
+const productStore = manyProducts();
+productStore.getAll();
+const product_list = () => {
+  return productStore.productLs;
+};
 </script>
 
 <style scoped lang="scss">

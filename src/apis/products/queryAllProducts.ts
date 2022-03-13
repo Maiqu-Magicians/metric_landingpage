@@ -6,12 +6,12 @@ export default async function getAllProducts(): Promise<Product[]> {
   await axios
     .get("https://api.maiquer.tech/api/evaluation/queryAll")
     .then((response) => {
-      console.log(response.data);
-      for (const i of response.data) {
+      console.log(response.data.data);
+      for (const i of response.data.data) {
         const p = new Product(i.name, i.Id, i.coverPic, i.realUrl);
         res.push(p);
       }
-    })
+    })//
     .catch((err) => {
       console.log(err);
     });

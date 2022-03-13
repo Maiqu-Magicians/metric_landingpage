@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, defineProps } from "vue";
+import { ref, reactive } from "vue";
 const props = defineProps({ type: String });
 // eslint-disable-next-line no-undef
 const emits = defineEmits(["pushAuth"]);
