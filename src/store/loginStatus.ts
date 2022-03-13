@@ -6,12 +6,20 @@ export const loginState = defineStore("login", {
     return {
       isLoggedIn: false,
       hasJWTs: false,
+      jwtToken: "",
     };
   },
   actions: {
-    async doLogin(username: string, password: string): Promise<void> {
-      await login(username, password);
-      this.isLoggedIn = true;
+    async doLogin(username: string, password: string): Promise<boolean> {
+      let success = false;
+      await login(username, password).then((jwtToken) => {
+        if (jwtToken != "") {
+          this.isLoggedIn = true;
+          success = true;
+          this.jwtToken = jwtToken;
+        }
+      });
+      return success;
     },
   },
 });

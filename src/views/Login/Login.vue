@@ -20,9 +20,9 @@ const redirLogin = () => {
   useRouter().push("/login");
 };
 
+const login_state = loginState();
 const pushLogin = async (username: string, password: string) => {
   console.log(username, password);
-  const login_state = loginState();
   await login_state.doLogin(username, password);
 };
 </script>

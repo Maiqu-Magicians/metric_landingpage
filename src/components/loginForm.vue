@@ -1,12 +1,12 @@
 <template>
   <div class="mainform">
-    <el-input placeholder="账号" v-model="ruleForm.userid" />
+    <el-input placeholder="账号" autocomplete v-model="ruleForm.userid" />
 
     <div v-if="type == 'login'">
-      <el-input type="password" placeholder="密码" v-model="ruleForm.auth" />
+      <el-input type="password" autocomplete placeholder="密码" v-model="ruleForm.auth" />
     </div>
     <div v-else class="with-code">
-      <el-input type="password" placeholder="验证码" v-model="ruleForm.auth" />
+      <el-input type="password" autocomplete placeholder="验证码" v-model="ruleForm.auth" />
       <el-button
         round
         class="code-btn"
