@@ -3,8 +3,9 @@ import axios from "axios";
 export default async function login(
   username: string,
   password: string
-): Promise<string> {
+): Promise<{ jwt: string; userid: number }> {
   let jwt = "";
+  let userid = 0;
   await axios({
     url: "https://api.maiquer.tech/api/login",
     method: "POST",
@@ -16,10 +17,11 @@ export default async function login(
     .then((response) => {
       if (response.data.code == 0) {
         jwt = response.data.data.jwt;
+        userid = response.data.data.userId;
       }
     })
     .catch((err) => {
       console.log(err);
     });
-  return jwt;
+  return { jwt: jwt, userid: userid };
 }

@@ -15,15 +15,26 @@ import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
 import { useRouter } from "vue-router";
 import { loginState } from "../../store/loginStatus";
+import { ElNotification } from "element-plus";
+import { h } from "vue";
+
+const router = useRouter()
 
 const redirLogin = () => {
-  useRouter().push("/login");
+  router.push("/login");
 };
 
 const login_state = loginState();
 const pushLogin = async (username: string, password: string) => {
   console.log(username, password);
-  await login_state.doLogin(username, password);
+  const result = await login_state.doLogin(username, password);
+  if (result) {
+    ElNotification({
+      title: "登录成功！",
+      message: h("i", { style: "color: teal" }, `${username}已经登录成功`),
+    });
+    router.push("/")
+  }
 };
 </script>
 

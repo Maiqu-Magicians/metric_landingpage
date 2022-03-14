@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar height="470px">
+  <el-scrollbar height="470px" v-loading.fullscreen.lock="isLoading">
     <div class="product-content">
       <div v-for="i of product_list()" class="product-card" :key="i.index">
         <div
@@ -33,15 +33,30 @@
 </template>
 
 <script lang="ts" setup>
-import { manyProducts } from "../store/products";
+import { ElLoading } from "element-plus";
+import { onMounted, ref } from "vue";
+import { ProductStore } from "../store/products";
 const openn = (url: string) => {
   window.open(url);
 };
-const productStore = manyProducts();
-productStore.getAll();
+const isLoading = ref(true);
+// const loading = ElLoading.service({
+//   lock: true,
+//   text: "Loading",
+//   background: "rgba(0, 0, 0, 0.7)",
+// });
+const productStore = ProductStore();
 const product_list = () => {
   return productStore.productLs;
 };
+onMounted(async () => {
+  await productStore.getAll();
+  isLoading.value = false;
+  // setTimeout(() => {
+  //   loading.close();
+  //   console.log("la");
+  // }, 1000);
+});
 </script>
 
 <style scoped lang="scss">

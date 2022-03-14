@@ -161,7 +161,7 @@ const introduction =
   color: #ffffff;
   opacity: 1;
 }
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 600px) {
   .main-card-content {
     flex-direction: column;
   }

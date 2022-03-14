@@ -11,7 +11,7 @@ export default async function getAllProducts(): Promise<Product[]> {
         const p = new Product(i.name, i.Id, i.coverPic, i.realUrl);
         res.push(p);
       }
-    })//
+    }) //
     .catch((err) => {
       console.log(err);
     });

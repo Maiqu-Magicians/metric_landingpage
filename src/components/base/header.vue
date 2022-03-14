@@ -24,21 +24,21 @@
         </div>
       </el-col>
       <el-col :span="10" :xs="0" />
-      <el-col :span="3" :xs="8" v-if="!isLoggedIn">
+      <el-col :span="3" :xs="8" v-if="!isLoggedIn()">
         <el-button
           type="default"
           round
           size="large"
-          style="transform: translate(0, -50%)"
-          @click="pushRegister"
+          style="transform: translate(0, 15%)"
+          @click="pushRegister()"
           >注册</el-button
         >
         <el-button
           type="primary"
           round
           size="large"
-          style="transform: translate(0, -50%)"
-          @click="pushLogin"
+          style="transform: translate(0, 15%)"
+          @click="pushLogin()"
           >登录</el-button
         >
       </el-col>
@@ -57,30 +57,29 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { useRouter } from "vue-router";
+import { loginState } from "../../store/loginStatus";
 
-export default defineComponent({
-  methods: {
-    pushLogin() {
-      this.$router.push("/login");
-    },
-    pushRegister() {
-      this.$router.push("/register");
-    },
-    pushCenter() {
-      this.$router.push("/personalCenter/info");
-    },
-  },
-  data() {
-    return {
-      isLoggedIn: true,
-      isBackState: false,
-      avtr_src:
-        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-    };
-  },
-});
+const loginStore = loginState();
+const router = useRouter()
+
+const pushLogin = () => {
+  router.push("/login");
+};
+const pushRegister = () => {
+  router.push("/register");
+};
+const pushCenter = () => {
+  router.push("/personalCenter/info");
+};
+const isLoggedIn = () => {
+  return loginStore.isLoggedIn;
+};
+const isBackState = false;
+const avtr_src =
+  "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png";
+console.log(isLoggedIn());
 </script>
 
 <style scoped lang="scss">
@@ -147,59 +146,5 @@ export default defineComponent({
   width: 100vw;
   background: rgba(255, 255, 255, 0.39);
   backdrop-filter: saturate(100%) blur(20px);
-}
-
-.btn-signup {
-  position: relative;
-  margin: 0 auto;
-  width: 4vw;
-  transform: translate(-50%, -50%);
-  height: 3vh;
-  border: 2px solid #ffffff;
-  opacity: 1;
-  border-radius: 25px;
-  text-align: center;
-}
-
-.btn-signup > span {
-  position: relative;
-  color: #ffffff;
-  font-size: 100%;
-}
-
-.btn-signup > span::before {
-  display: inline-block;
-  height: 100%;
-  content: "";
-  vertical-align: middle;
-}
-
-.btn-login {
-  position: relative;
-  margin: 0 auto;
-  transform: translate(-50%, -50%);
-  width: 4vw;
-  height: 3vh;
-  background-color: rgba(65, 153, 255, 0.39);
-  border: 2px rgba(65, 153, 255, 0.39);
-  opacity: 1;
-  border-radius: 25px;
-  text-align: center;
-  opacity: 1;
-}
-
-.btn-login > span {
-  position: relative;
-  margin: 0 auto;
-  color: #ffffff;
-  font-size: 100%;
-  /* top: 17%; */
-  /* line-height: 50%; */
-}
-.btn-login > span::before {
-  display: inline-block;
-  height: 100%;
-  content: "";
-  vertical-align: middle;
 }
 </style>
