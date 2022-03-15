@@ -47,14 +47,13 @@ $product_card_width: 200px;
   align-items: center;
   justify-content: space-between;
   justify-self: stretch;
-  border: 1px solid;
 }
 
 .product-card {
   position: relative;
-  // width: $product_card_width;
   height: 300px;
   border-radius: 3vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   & > div {
     position: relative;
     margin: 0 0 0 0;

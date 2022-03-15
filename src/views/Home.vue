@@ -67,6 +67,7 @@ const introduction =
   opacity: 1;
   border-radius: 70px 70px 0px 0px;
   overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .fade-in {

@@ -112,6 +112,7 @@ const avtr_src = "../../assets/icons8-user.svg";
   text-decoration: none;
   text-align: center;
   color: #ffffff;
+  box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
   &::before {
     display: inline-block;
     height: 100%;
@@ -158,6 +159,7 @@ const avtr_src = "../../assets/icons8-user.svg";
   overflow: hidden;
   animation-name: card-fade-in-lf;
   animation-duration: 1000ms;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
 }
 
 .right-card {
