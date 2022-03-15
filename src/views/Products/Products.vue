@@ -6,15 +6,8 @@
         <el-carousel :interval="4000" :height="topheight" width="1000px">
           <el-carousel-item v-for="item in car" :key="item.index">
             <div
+              :style="{ backgroundImage: `url('${item.backgd_url} ')` }"
               class="medium"
-              :style="{
-                'background-image': 'url(' + item.backgd_url + ')',
-                'background-repeat': 'no-repeat',
-                'background-size': 'cover',
-                'background-position': 'center',
-                height: '100%',
-                'border-radius': '4vh',
-              }"
             ></div>
           </el-carousel-item>
         </el-carousel>
@@ -108,7 +101,14 @@ export default defineComponent({
 .top-carousel-content {
   height: 350px;
   margin: 2vh auto;
-  
+  overflow: visible;
+}
+.medium {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  border-radius: 4vh;
 }
 
 .fade-in-lf {
@@ -213,7 +213,6 @@ export default defineComponent({
   background: rgba(65, 153, 255, 0.89);
   width: 120%;
   text-align: center;
-  
 }
 
 .router-link-exact-active::before {

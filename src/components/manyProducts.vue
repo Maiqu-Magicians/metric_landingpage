@@ -14,8 +14,13 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, PropType, ref } from "vue";
+import Product from "../entity/product";
 import { ProductStore } from "../store/products";
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  productList: { type: Array as PropType<Product[]> },
+});
 const openn = (url: string) => {
   window.open(url);
 };

@@ -6,7 +6,7 @@
       <div class="left-card">
         <div class="left-card-content">
           <div class="head-icon">
-            <img :src="avtr_src" class="avtr-img" />
+            <img :src="avtr_src()" class="avtr-img" />
           </div>
           <span>用户名</span>
           <router-link to="/personalCenter/info" class="btn"
@@ -16,7 +16,7 @@
             >测评记录</router-link
           >
           <router-link to="/personalCenter/products" class="btn"
-            >已购产品</router-link
+            >我拥有的</router-link
           >
         </div>
       </div>
@@ -31,7 +31,11 @@
 </template>
 
 <script lang="ts" setup>
-const avtr_src = "../../assets/icons8-user.svg";
+import { userInfo } from "../../store/userInfo";
+const i = userInfo();
+const avtr_src = () => {
+  return i.userInfo.avtr_url;
+};
 </script>
 
 <style scoped lang="scss">
@@ -55,13 +59,12 @@ const avtr_src = "../../assets/icons8-user.svg";
 }
 .avtr-img {
   position: relative;
-  width: 30%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  top: -20%;
 }
 .head-icon {
   position: relative;
+  overflow: hidden;
   width: 15vh;
   height: 15vh;
   background: rgba(255, 255, 255, 0.39);

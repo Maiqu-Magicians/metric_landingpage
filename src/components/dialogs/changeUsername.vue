@@ -27,7 +27,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -48,37 +48,38 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  & > div > span {
+    width: 180px;
+    height: 47px;
+    font-size: 36px;
+    font-family: OPPOSans-M;
+    font-weight: 800;
+    line-height: 47px;
+    color: #ffffff;
+    opacity: 1;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    width: 650px;
+    height: 392px;
+    background: rgba(119, 182, 255, 0.39);
+    backdrop-filter: saturate(0%) blur(40px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 1;
+    border-radius: 10px;
+  }
 }
-.modal > div > span {
-  width: 180px;
-  height: 47px;
-  font-size: 36px;
-  font-family: OPPOSans;
-  font-weight: 800;
-  line-height: 47px;
-  color: #ffffff;
-  opacity: 1;
-}
-.modal > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  width: 650px;
-  height: 392px;
-  background: rgba(65, 153, 255, 0.39);
-  /* backdrop-filter: saturate(0%) blur(40px); */
 
-  opacity: 1;
-  border-radius: 10px;
-}
-:veep(el-input__inner) {
+:deep(.el-input__inner) {
   position: relative;
-  margin: 10% auto 3%;
+  margin: 0% auto 0%;
   height: 60px;
   width: 80%;
-  border-radius: 10px;
+  border-radius: 20px;
   color: #4d1515;
   opacity: 0.5;
 }
