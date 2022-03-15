@@ -15,7 +15,7 @@ import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
 import { useRouter } from "vue-router";
 import { loginState } from "../../store/loginStatus";
-import { ElNotification } from "element-plus";
+import { ElNotification } from "element-plus/lib/components/notification/index";
 import { h } from "vue";
 
 const router = useRouter()

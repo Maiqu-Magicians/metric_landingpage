@@ -3,10 +3,20 @@
     <el-input placeholder="账号" autocomplete v-model="ruleForm.userid" />
 
     <div v-if="type == 'login'">
-      <el-input type="password" autocomplete placeholder="密码" v-model="ruleForm.auth" />
+      <el-input
+        type="password"
+        autocomplete
+        placeholder="密码"
+        v-model="ruleForm.auth"
+      />
     </div>
     <div v-else class="with-code">
-      <el-input type="password" autocomplete placeholder="验证码" v-model="ruleForm.auth" />
+      <el-input
+        type="password"
+        autocomplete
+        placeholder="验证码"
+        v-model="ruleForm.auth"
+      />
       <el-button
         round
         class="code-btn"
@@ -39,6 +49,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from "vue";
+// eslint-disable-next-line no-undef
 const props = defineProps({ type: String });
 // eslint-disable-next-line no-undef
 const emits = defineEmits(["pushAuth"]);
@@ -87,18 +98,16 @@ const postBtnText = props.type == "register" ? "注册" : "登录";
   border-radius: 10px;
   color: #4d1515;
   opacity: 0.5;
+  font-size: 17px;
+  color: coral;
+  font-family: OPPOSans-H;
 }
 
-/* 按钮样式 */
-:deep(.el-button__inner) {
-  height: 60px;
-  width: 100%;
-  color: rgb(28, 32, 255);
-  opacity: 0.5;
-}
 .el-button {
   height: 60px;
   width: 100%;
+  font-size: 18px;
+  font-family: OPPOSans-H;
 }
 div {
   width: 100%;

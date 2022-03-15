@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 90vh" justify="center">
-    <el-col :span="1" />
-    <el-col :span="21" type="flex">
+    <el-col :span="2" />
+    <el-col :span="20" type="flex">
       <div class="top-carousel-content fade-in-up">
         <el-carousel :interval="4000" :height="topheight" width="1000px">
           <el-carousel-item v-for="item in car" :key="item.index">
@@ -20,7 +20,7 @@
         </el-carousel>
       </div>
       <div>
-        <el-row :justify="productsJustify" :gutter="0">
+        <el-row>
           <el-col :span="4" :xs="0">
             <div class="menu-card fade-in-lf">
               <div class="option-btn" v-for="i of classes" :key="i.index">
@@ -37,7 +37,7 @@
         </el-row>
       </div>
     </el-col>
-    <el-col :span="4" />
+    <el-col :span="2" />
   </el-row>
 </template>
 
