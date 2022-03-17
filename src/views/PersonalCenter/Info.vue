@@ -3,67 +3,67 @@
     <div class="right-card-content">
       <div class="info-col">
         <el-row class="info-title" style="height: 100%" align="middle">
-          <el-col :span="5">用户头像</el-col>
-          <el-col :span="14">
+          <el-col :span="5" :xs="18">用户头像</el-col>
+          <el-col :span="14" :xs="0">
             <img width="50" :src="info().avtr_url" />
           </el-col>
-          <el-col :span="4">
+          <el-col :span="4" :xs="6">
             <el-button type="primary" round @click="uploadAvtr">上传</el-button>
           </el-col>
         </el-row>
       </div>
-      <line />
-      <div class="info-col">
-        <el-row class="info-title" style="height: 100%" align="middle">
-          <el-col :span="5">用户名</el-col>
-          <el-col :span="14">{{ info().name }}</el-col>
-          <el-col :span="4">
-            <change-username />
-          </el-col>
-        </el-row>
-      </div>
-      <line />
-      <div class="info-col">
-        <el-row class="info-title" style="height: 100%" align="middle">
-          <el-col :span="5">绑定手机</el-col>
-          <el-col :span="14">{{ phone }}</el-col>
-          <el-col :span="4">
-            <el-button type="primary" round @click="changePhone"
-              >换绑</el-button
-            >
-          </el-col>
-        </el-row>
-      </div>
-      <line />
-      <div class="info-col">
-        <el-row class="info-title" style="height: 100%" align="middle">
-          <el-col :span="5">绑定邮箱</el-col>
-          <el-col :span="14">{{ email }}</el-col>
-          <el-col :span="4">
-            <el-button type="primary" round @click="changeEmail"
-              >换绑</el-button
-            >
-          </el-col>
-        </el-row>
-      </div>
-      <line />
-      <div class="info-col">
-        <el-row class="info-title" style="height: 100%" align="middle">
-          <el-col :span="5">绑定微信</el-col>
-          <el-col :span="14">{{ wxid }}</el-col>
-          <el-col :span="4">
-            <el-button type="primary" round @click="changeWX">解绑</el-button>
-          </el-col>
-        </el-row>
+      <div v-for="i of cols" :key="i.index">
+        <div class="line" />
+        <div class="info-col">
+          <el-row class="info-title" style="height: 100%" align="middle">
+            <el-col :span="5">{{ i.lf }}</el-col>
+            <el-col :span="14">{{ i.rf }}</el-col>
+            <el-col :span="4">
+              <component :is="i.component" />
+            </el-col>
+          </el-row>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from "vue";
 import changeUsername from "../../components/dialogs/changeUsername.vue";
 import { userInfo } from "../../store/userInfo";
+
+const UserInfo = userInfo();
+
+const info = () => {
+  return UserInfo.userInfo;
+};
+
+const cols = [
+  {
+    index: 0,
+    lf: "用户名",
+    rf: info().name,
+    component: changeUsername,
+  },
+  {
+    index: 1,
+    lf: "绑定手机",
+    rf: info().phone,
+    component: {
+      template:
+        "<el-button type='primary' round @click='changePhone'>换绑</el-button>",
+    },
+  },
+  {
+    index: 2,
+    lf: "绑定微信",
+    rf: info().phone,
+    component: {
+      template:
+        "<el-button type='primary' round @click='changePhone'>换绑</el-button>",
+    },
+  },
+];
 
 const changeWX = () => {
   console.log("changeWX");
@@ -76,11 +76,6 @@ const changePhone = () => {
 };
 const uploadAvtr = () => {
   console.log("uploadAvtr");
-};
-const UserInfo = userInfo();
-
-const info = () => {
-  return UserInfo.userInfo;
 };
 </script>
 
@@ -103,7 +98,7 @@ const info = () => {
   flex: 1;
 }
 
-line {
+.line {
   width: 100%;
   height: 0px;
   border: 1px solid #ffffff;

@@ -1,38 +1,27 @@
 <template>
-  <el-scrollbar height="470px" v-loading.fullscreen.lock="isLoading">
-    <div class="product-content">
-      <div v-for="i of product_list()" class="product-card" :key="i.index">
-        <div :style="{ backgroundImage: `url('${i.backgd_url}')` }">
-          <div class="product-card-label">
-            <div>{{ i.name }}</div>
-            <img src="../assets/btn_login.svg" @click="openn(i.target_url)" />
-          </div>
+  <div class="product-content">
+    <div v-for="i of props.productList" class="product-card" :key="i.index">
+      <div :style="{ backgroundImage: `url('${i.backgd_url}')` }">
+        <div class="product-card-label">
+          <div>{{ i.name }}</div>
+          <img src="../assets/btn_login.svg" @click="openn(i.target_url)" />
         </div>
       </div>
     </div>
-  </el-scrollbar>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, PropType, ref } from "vue";
+import { PropType } from "vue";
 import Product from "../entity/product";
-import { ProductStore } from "../store/products";
 // eslint-disable-next-line no-undef
 const props = defineProps({
   productList: { type: Array as PropType<Product[]> },
+  isLoading: { type: Boolean },
 });
 const openn = (url: string) => {
   window.open(url);
 };
-const isLoading = ref(true);
-const productStore = ProductStore();
-const product_list = () => {
-  return productStore.productLs;
-};
-onMounted(async () => {
-  await productStore.getAll();
-  isLoading.value = false;
-});
 </script>
 
 <style scoped lang="scss">

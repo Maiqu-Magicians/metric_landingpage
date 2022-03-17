@@ -16,14 +16,14 @@ import loginForm from "../../components/loginForm.vue";
 import { useRouter } from "vue-router";
 import { loginState } from "../../store/loginStatus";
 import { ElNotification } from "element-plus/lib/components/notification/index";
-import { h } from "vue";
+import { h, ref } from "vue";
 
-const router = useRouter()
+const router = useRouter();
 
 const redirLogin = () => {
-  router.push("/login");
+  window.open("https://api.maiquer.tech/api/wechat/login");
 };
-
+const isLoading = ref(false);
 const login_state = loginState();
 const pushLogin = async (username: string, password: string) => {
   console.log(username, password);
@@ -33,7 +33,7 @@ const pushLogin = async (username: string, password: string) => {
       title: "登录成功！",
       message: h("i", { style: "color: teal" }, `${username}已经登录成功`),
     });
-    router.push("/")
+    router.push("/");
   }
 };
 </script>

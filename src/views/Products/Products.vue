@@ -1,37 +1,39 @@
 <template>
-  <el-row style="height: 90vh" justify="center">
-    <el-col :span="2" />
-    <el-col :span="20" type="flex">
-      <div class="top-carousel-content fade-in-up">
-        <el-carousel :interval="4000" :height="topheight" width="1000px">
-          <el-carousel-item v-for="item in car" :key="item.index">
-            <div
-              :style="{ backgroundImage: `url('${item.backgd_url} ')` }"
-              class="medium"
-            ></div>
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <div>
-        <el-row>
-          <el-col :span="4" :xs="0">
-            <div class="menu-card fade-in-lf">
-              <div class="option-btn" v-for="i of classes" :key="i.index">
-                <router-link style="text-decoration: none" :to="i.route">
-                  {{ i.name }}
-                </router-link>
+  <el-scrollbar height="100%" v-loading.fullscreen.lock="isLoading">
+    <el-row justify="center">
+      <el-col :span="2" />
+      <el-col :span="20" type="flex">
+        <div class="top-carousel-content fade-in-up">
+          <el-carousel :interval="4000" :height="topheight()" width="1000px">
+            <el-carousel-item v-for="item in car" :key="item.index">
+              <div
+                :style="{ backgroundImage: `url('${item.backgd_url} ')` }"
+                class="medium"
+              ></div>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+        <div>
+          <el-row>
+            <el-col :span="4" :xs="0">
+              <div class="menu-card fade-in-lf">
+                <div class="option-btn" v-for="i of classes" :key="i.index">
+                  <router-link style="" :to="i.route">
+                    {{ i.name }}
+                  </router-link>
+                </div>
               </div>
-            </div>
-          </el-col>
-          <el-col :span="1" :xs="0" />
-          <el-col :span="19" :xs="24" class="right-content fade-in-rt">
-            <router-view />
-          </el-col>
-        </el-row>
-      </div>
-    </el-col>
-    <el-col :span="2" />
-  </el-row>
+            </el-col>
+            <el-col :span="1" :xs="0" />
+            <el-col :span="19" :xs="24" class="right-content fade-in-rt">
+              <router-view />
+            </el-col>
+          </el-row>
+        </div>
+      </el-col>
+      <el-col :span="2" />
+    </el-row>
+  </el-scrollbar>
 </template>
 
 <script lang="ts">
@@ -79,7 +81,7 @@ export default defineComponent({
       ],
     };
   },
-  computed: {
+  methods: {
     topheight() {
       return document.body.clientWidth < 1200 ? "200px" : "300px";
     },
@@ -200,6 +202,7 @@ export default defineComponent({
   a {
     color: white;
     font-size: 18px;
+    text-decoration: none;
   }
   ::before {
     display: inline-block;

@@ -57,11 +57,6 @@ const avtr_src = () => {
     opacity: 100%;
   }
 }
-.avtr-img {
-  position: relative;
-  width: 100%;
-  top: -20%;
-}
 .head-icon {
   position: relative;
   overflow: hidden;
@@ -70,6 +65,11 @@ const avtr_src = () => {
   background: rgba(255, 255, 255, 0.39);
   border-radius: 50%;
   opacity: 1;
+  & > img {
+    position: relative;
+    width: 100%;
+    top: -20%;
+  }
 }
 
 .btn {
@@ -98,7 +98,6 @@ const avtr_src = () => {
     box-shadow: 0px 10px 20px rgba(83, 152, 247, 0.4);
     opacity: 1;
     border-radius: 31px;
-
     text-decoration: none;
     text-align: center;
     color: #ffffff;
@@ -165,17 +164,4 @@ const avtr_src = () => {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
 }
 
-.right-card {
-  top: 7vh;
-  position: relative;
-  width: 100%;
-  height: 78vh;
-  background: rgba(255, 255, 255, 0.19);
-  backdrop-filter: saturate(100%) blur(30px);
-  opacity: 1;
-  border-radius: 30px;
-  overflow: hidden;
-  animation-name: card-fade-in-rt;
-  animation-duration: 1000ms;
-}
 </style>

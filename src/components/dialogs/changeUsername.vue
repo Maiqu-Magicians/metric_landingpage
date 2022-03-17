@@ -52,11 +52,15 @@ export default defineComponent({
     width: 180px;
     height: 47px;
     font-size: 36px;
+    @media screen and (max-width: 980px) {
+      font-size: 26px;
+    }
     font-family: OPPOSans-M;
     font-weight: 800;
     line-height: 47px;
     color: #ffffff;
     opacity: 1;
+    text-align: center;
   }
   & > div {
     display: flex;
@@ -65,6 +69,9 @@ export default defineComponent({
     justify-content: space-around;
     padding: 5px;
     width: 650px;
+    @media screen and (max-width: 980px) {
+      width: 80%;
+    }
     height: 392px;
     background: rgba(119, 182, 255, 0.39);
     backdrop-filter: saturate(0%) blur(40px);
