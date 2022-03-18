@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-import { userInfo } from "../../store/userInfo";
+import { userInfo } from "../store/userInfo";
 const i = userInfo();
 const avtr_src = () => {
   return i.userInfo.avtr_url;

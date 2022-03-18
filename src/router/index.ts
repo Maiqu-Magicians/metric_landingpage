@@ -3,7 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login/Login.vue";
 import Register from "../views/Login/Register.vue";
-import personalCenter from "../views/PersonalCenter/PersonalCenter.vue";
+import personalCenter from "../views/PersonalCenter.vue";
 import Info from "../views/PersonalCenter/Info.vue";
 import Product from "../views/PersonalCenter/Products.vue";
 import Record from "../views/PersonalCenter/Record.vue";

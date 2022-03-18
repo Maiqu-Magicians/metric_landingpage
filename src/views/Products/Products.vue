@@ -1,95 +1,55 @@
 <template>
-  <el-scrollbar height="100%" v-loading.fullscreen.lock="isLoading">
+  <el-scrollbar height="100%">
     <el-row justify="center">
       <el-col :span="2" />
       <el-col :span="20" type="flex">
         <div class="top-carousel-content fade-in-up">
           <el-carousel :interval="4000" :height="topheight()" width="1000px">
-            <el-carousel-item v-for="item in car" :key="item.index">
+            <el-carousel-item v-for="i in car" :key="i">
               <div
-                :style="{ backgroundImage: `url('${item.backgd_url} ')` }"
+                :style="{ backgroundImage: `url('${i} ')` }"
                 class="medium"
-              ></div>
+              />
             </el-carousel-item>
           </el-carousel>
         </div>
-        <div>
-          <el-row>
-            <el-col :span="4" :xs="0">
-              <div class="menu-card fade-in-lf">
-                <div class="option-btn" v-for="i of classes" :key="i.index">
-                  <router-link style="" :to="i.route">
-                    {{ i.name }}
-                  </router-link>
-                </div>
+        <el-row>
+          <el-col :span="4" :xs="0">
+            <div class="menu-card fade-in-lf">
+              <div class="option-btn" v-for="(i, v) in classes" :key="i">
+                <router-link style="" :to="i">
+                  {{ v }}
+                </router-link>
               </div>
-            </el-col>
-            <el-col :span="1" :xs="0" />
-            <el-col :span="19" :xs="24" class="right-content fade-in-rt">
-              <router-view />
-            </el-col>
-          </el-row>
-        </div>
+            </div>
+          </el-col>
+          <el-col :span="1" :xs="0" />
+          <el-col :span="19" :xs="24" class="right-content fade-in-rt">
+            <router-view />
+          </el-col>
+        </el-row>
       </el-col>
       <el-col :span="2" />
     </el-row>
   </el-scrollbar>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+const car = [
+  "https://img-cdn.dustella.net/car0.webp",
+  "https://img-cdn.dustella.net/car1.webp",
+  "https://img-cdn.dustella.net/car2.webp",
+];
+const classes = {
+  全部: "/products/All",
+  职业能力: "products/jobs",
+  压力测试: "products/pressure",
+  性格测试: "products/personality",
+};
 
-export default defineComponent({
-  name: "AllProducts",
-  data() {
-    return {
-      car: [
-        {
-          index: 0,
-          backgd_url: "https://img-cdn.dustella.net/car0.webp",
-        },
-        {
-          index: 1,
-          backgd_url: "https://img-cdn.dustella.net/car1.webp",
-        },
-        {
-          index: 2,
-          backgd_url: "https://img-cdn.dustella.net/car2.webp",
-        },
-      ],
-      classes: [
-        {
-          index: 1,
-          name: "全部",
-          route: "/products/All",
-        },
-        {
-          index: 2,
-          name: "职业能力",
-          route: "/products/jobs",
-        },
-        {
-          index: 3,
-          name: "压力测试",
-          route: "/products/pressure",
-        },
-        {
-          index: 4,
-          name: "性格测试",
-          route: "/products/personality",
-        },
-      ],
-    };
-  },
-  methods: {
-    topheight() {
-      return document.body.clientWidth < 1200 ? "200px" : "300px";
-    },
-    productsJustify() {
-      return document.body.clientWidth < 1200 ? "center" : "center";
-    },
-  },
-});
+const topheight = () => {
+  return document.body.clientWidth < 1200 ? "200px" : "300px";
+};
 </script>
 
 <style scoped lang="scss">
