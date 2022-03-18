@@ -1,6 +1,6 @@
 <template>
   <div class="product-content">
-    <div v-for="i of props.productList" class="product-card" :key="i.index">
+    <div v-for="i of props.listing" class="product-card" :key="i.index">
       <div :style="{ backgroundImage: `url('${i.backgd_url}')` }">
         <div class="product-card-label">
           <div>{{ i.name }}</div>
@@ -16,7 +16,7 @@ import { PropType } from "vue";
 import Product from "../entity/product";
 // eslint-disable-next-line no-undef
 const props = defineProps({
-  productList: { type: Array as PropType<Product[]> },
+  listing: { type: Array as PropType<Product[]> },
   isLoading: { type: Boolean },
 });
 const openn = (url: string) => {
