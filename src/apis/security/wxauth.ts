@@ -7,15 +7,10 @@ export default async function wxauth(
   let jwt = "";
   let userid = 0;
   await axios
-    .get(`https://api.maiquer.tech/callback?code=${code}&state=${state}`, {
-      withCredentials: true,
-    })
+    .get(`https://api.maiquer.tech/callback?code=${code}&state=${state}`)
     .then((response) => {
       if (response.data.code == 0) {
-        const cookie = response.headers["set-cookie"]?.toString();
-        if (cookie) {
-          jwt = cookie;
-        }
+        jwt = response.data.data.jwt;
         userid = response.data.data.id;
       }
     })
