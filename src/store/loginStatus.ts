@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import login from "../apis/security/login";
+import wxauth from "../apis/security/wxauth";
 
 export const loginState = defineStore("login", {
   state: () => {
@@ -21,6 +22,16 @@ export const loginState = defineStore("login", {
           this.userid = session.userid;
           this.save2Local();
         }
+      });
+      return success;
+    },
+    async wxLogin(code: string): Promise<boolean> {
+      let success = false;
+      const state = "maiqu";
+      await wxauth(code, state).then((session) => {
+        this.jwtToken = session.jwt;
+        this.userid = session.userid;
+        success = true;
       });
       return success;
     },

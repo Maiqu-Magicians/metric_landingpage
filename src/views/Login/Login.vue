@@ -31,7 +31,8 @@ const pushLogin = async (username: string, password: string) => {
   if (result) {
     ElNotification({
       title: "登录成功！",
-      message: h("i", { style: "color: teal" }, `${username}已经登录成功`),
+
+      message: h("i", { style: "color: teal;" }, `${username}已经登录成功`),
     });
     router.push("/");
   }
@@ -60,5 +61,10 @@ const pushLogin = async (username: string, password: string) => {
     margin-top: 28px;
     background: linear-gradient(180deg, #04b46b 0%, #1cd187 80%);
   }
+}
+.el-notification {
+  background: rgba(255, 255, 255, 0.19);
+  backdrop-filter: saturate(100%) blur(30px);
+  width: 100%;
 }
 </style>

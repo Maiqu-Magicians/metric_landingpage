@@ -62,7 +62,7 @@ import { useRouter } from "vue-router";
 import { loginState } from "../../store/loginStatus";
 
 const loginStore = loginState();
-const router = useRouter()
+const router = useRouter();
 
 const pushLogin = () => {
   router.push("/login");
@@ -77,6 +77,7 @@ const isLoggedIn = () => {
   return loginStore.isLoggedIn;
 };
 const isBackState = false;
+
 const avtr_src =
   "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png";
 console.log(isLoggedIn());
@@ -89,6 +90,9 @@ console.log(isLoggedIn());
   float: right;
   &:hover {
     opacity: 0.7;
+    &::after {
+      content: "lala";
+    }
   }
 }
 
