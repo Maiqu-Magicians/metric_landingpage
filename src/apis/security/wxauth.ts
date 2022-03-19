@@ -11,7 +11,7 @@ export default async function wxauth(
     .then((response) => {
       if (response.data.code == 0) {
         jwt = response.data.data.jwt;
-        userid = response.data.data.id;
+        userid = response.data.data.userId;
       }
     })
     .catch((err) => {
