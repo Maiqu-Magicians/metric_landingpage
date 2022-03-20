@@ -13,7 +13,7 @@ import { ref, onMounted } from "vue";
 import { loginState } from "../../store/loginStatus";
 
 const isOK = ref(false);
-const debug = ref(true);
+const debug = ref(false);
 const code = ref("");
 
 const route = useRoute();
