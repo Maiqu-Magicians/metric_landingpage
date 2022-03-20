@@ -29,8 +29,10 @@ export const loginState = defineStore("login", {
       let success = false;
       const state = "maiqu";
       await wxauth(code, state).then((session) => {
+        this.isLoggedIn = true;
         this.jwtToken = session.jwt;
         this.userid = session.userid;
+        this.save2Local();
         success = true;
       });
       return success;

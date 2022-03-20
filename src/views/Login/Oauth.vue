@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOK">正在处理登录.....</div>
+  <div v-if="!isOK">正在处理登录.....</div>
   <div v-else>正在跳转......</div>
   <div v-if="debug">
     <div>{{ code }}</div>
@@ -22,8 +22,11 @@ const login = loginState();
 code.value = route.query.code as string;
 onMounted(async () => {
   const res = await login.wxLogin(code.value);
-  if (res && !debug.value) {
-    router.push("/");
-  }
+  isOK.value = res;
+  setTimeout(() => {
+    if (res && !debug.value) {
+      router.push("/");
+    }
+  }, 1500);
 });
 </script>
