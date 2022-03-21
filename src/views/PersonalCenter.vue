@@ -23,7 +23,11 @@
     </el-col>
 
     <el-col :span="9" :xs="18">
-      <router-view />
+      <router-view v-slot="{ Component }" class="right-content">
+        <Transition name="fade" mode="out-in">
+          <component :is="Component"></component>
+        </Transition>
+      </router-view>
     </el-col>
 
     <el-col :span="3" :xs="1"></el-col>
@@ -41,21 +45,45 @@ const avtr_src = () => {
 <style scoped lang="scss">
 @keyframes card-fade-in-lf {
   from {
-    opacity: 0;
-    transform: translate(-50%, 0%);
+    transform: translateX(-70%);
+    opacity: 0.5;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 @keyframes card-fade-in-rt {
   from {
+    transform: translateX(70%);
     opacity: 0;
-    transform: translate(50%, 0%);
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
+}
+@keyframes card-fade-out-rt {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(70%);
+    opacity: 0;
+  }
+}
+
+.right-content {
+  animation-name: card-fade-in-rt;
+  animation-duration: 1s;
+}
+
+.fade-enter-active {
+  animation-name: card-fade-in-rt;
+  animation-duration: 1s;
+}
+
+.fade-leave-active {
+  animation-name: card-fade-out-rt;
+  animation-duration: 1s;
 }
 .head-icon {
   position: relative;
@@ -163,5 +191,4 @@ const avtr_src = () => {
   animation-duration: 1000ms;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
 }
-
 </style>

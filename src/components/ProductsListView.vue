@@ -48,6 +48,7 @@ $product_card_width: 200px;
   height: 300px;
   border-radius: 3vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.5s;
   & > div {
     position: relative;
     margin: 0 0 0 0;
@@ -57,6 +58,9 @@ $product_card_width: 200px;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 3vh;
+  }
+  &:hover {
+    transform: scale(1.2, 1.2) translateY(-5%);
   }
 }
 

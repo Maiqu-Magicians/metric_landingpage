@@ -116,6 +116,7 @@ const uploadAvtr = () => {
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 :deep(.el-button) {

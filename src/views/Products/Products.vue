@@ -151,6 +151,7 @@ const topheight = () => {
   // align-items: center;
   width: 100%;
   height: 8vh;
+  transition: all 0.5s;
   :hover {
     width: 100%;
     // font-weight: bold;

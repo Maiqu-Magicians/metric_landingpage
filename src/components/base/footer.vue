@@ -30,13 +30,23 @@ span {
   font-size: 1.7vh;
   color: #ffffff;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .main-footer {
   position: fixed;
   z-index: 100;
   bottom: 0;
   height: 10vh;
   width: 100%;
-
+  animation-name: fade-in;
+  animation-duration: 2000ms;
   background: rgba(255, 255, 255, 0.39);
 }
 </style>

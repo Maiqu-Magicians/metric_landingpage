@@ -1,33 +1,35 @@
 <template>
-  <div class="right-card-top">
-    <el-row justify="center">
-      <el-col :span="13">
-        <div class="top-left-inner">
-          <div class="latest-test-top">最近测评</div>
-          <div class="latest-test-bottom">{{ latest_test }}</div>
+  <div class="wrapper">
+    <div class="right-card-top">
+      <el-row justify="center">
+        <el-col :span="13">
+          <div class="top-left-inner">
+            <div class="latest-test-top">最近测评</div>
+            <div class="latest-test-bottom">{{ latest_test }}</div>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="continue-btn" @click="continue_test">
+            <img src="../../assets/continue.svg" />
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="right-card-bottom">
+      <div class="card-bottom-content">
+        <span class="test-title">测评记录</span>
+        <div class="table">
+          <tr>
+            <th>测评时间</th>
+            <th>测评名称</th>
+            <th>测评详情</th>
+          </tr>
+          <tr v-for="i in test_records" :key="i.name">
+            <td class="time-spe">{{ i.time }}</td>
+            <td class="name-spe">{{ i.name }}</td>
+            <td class="status-spe">{{ i.status }}</td>
+          </tr>
         </div>
-      </el-col>
-      <el-col :span="8">
-        <div class="continue-btn" @click="continue_test">
-          <img src="../../assets/continue.svg" />
-        </div>
-      </el-col>
-    </el-row>
-  </div>
-  <div class="right-card-bottom">
-    <div class="card-bottom-content">
-      <span class="test-title">测评记录</span>
-      <div class="table">
-        <tr>
-          <th>测评时间</th>
-          <th>测评名称</th>
-          <th>测评详情</th>
-        </tr>
-        <tr v-for="i in test_records" :key="i.name">
-          <td class="time-spe">{{ i.time }}</td>
-          <td class="name-spe">{{ i.name }}</td>
-          <td class="status-spe">{{ i.status }}</td>
-        </tr>
       </div>
     </div>
   </div>

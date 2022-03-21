@@ -87,11 +87,13 @@ console.log(isLoggedIn());
 .avtr {
   position: relative;
   transform: translate(-50%, 50%);
+  transition: all 0.5s;
   float: right;
   &:hover {
     opacity: 0.7;
+    transform: translate(-50%, 50%) scale(1.5, 1.5);
     &::after {
-      content: "lala";
+      content: "";
     }
   }
 }
@@ -145,10 +147,21 @@ console.log(isLoggedIn());
   display: block;
   line-height: 270%;
 }
+@keyframes fade-in {
+  from {
+    transform: translateY(-100%);
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .thisheader {
   height: 6vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.39);
   backdrop-filter: saturate(100%) blur(20px);
+  animation-name: fade-in;
+  animation-duration: 1000ms;
 }
 </style>
