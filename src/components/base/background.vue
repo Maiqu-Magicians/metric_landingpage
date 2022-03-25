@@ -1,35 +1,41 @@
 <template>
   <div class="background-top"></div>
-  <div class="background-bottom"></div>
 </template>
 
-<style scoped>
+<script lang="ts" setup>
+import { computed, ref } from "vue";
+const deg = ref(135);
+const degg = computed(() => {
+  return `${deg.value}deg`;
+});
+setInterval(() => {
+  deg.value++;
+}, 70);
+</script>
+
+<style lang="scss" scoped>
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .background-top {
   position: fixed;
   z-index: -1;
   width: 100vw;
-  height: 75vh;
-  background: linear-gradient(
-      /* to top, */ 180deg,
-      rgba(70, 51, 51, 0) 0%,
-      rgba(70, 51, 51, 0) 35%,
-      #5398f7 70%,
-      #5398f7 100%
-    ),
-    url("../../assets/back.webp");
+  height: 100vh;
+  background-color: #8bc6ec;
+  background-image: linear-gradient(v-bind(degg), #8bc6ec 0%, #9599e2 100%);
+  animation-name: fade;
+  animation-duration: 2s;
+  /* url("../../assets/back.webp"); */
   opacity: 1;
+  transition: all 0.5s;
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
-}
-
-.background-bottom {
-  z-index: -2;
-  display: block;
-  position: fixed;
-  top: 65vh;
-  width: 100vw;
-  background-color: #5398f7;
-  height: 40vh;
 }
 </style>

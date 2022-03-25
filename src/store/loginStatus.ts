@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import login from "../apis/security/login";
 import wxauth from "../apis/security/wxauth";
+import { smsSend, smsAuth } from "../apis/security/smsAuth";
 
 export const loginState = defineStore("login", {
   state: () => {
@@ -34,6 +35,26 @@ export const loginState = defineStore("login", {
         this.userid = session.userid;
         this.save2Local();
         success = true;
+      });
+      return success;
+    },
+    async doSendSms(phone: string): Promise<boolean> {
+      let res = false;
+      await smsSend(phone).then((session) => {
+        console.log(session);
+        res = true;
+      });
+      return res;
+    },
+    async doSmsLogin(phone: string, code: string): Promise<boolean> {
+      let success = false;
+      await smsAuth(phone, code).then((jwt) => {
+        success = true;
+        this.jwtToken = jwt;
+        const data = jwt.slice(jwt.indexOf(".") + 1, jwt.lastIndexOf("."));
+        const id = eval(`(${atob(data)})`);
+        this.userid = id.jti;
+        this.isLoggedIn = true;
       });
       return success;
     },

@@ -5,7 +5,7 @@
       <button @click="pushLogin">微信登陆</button>
     </template>
     <template v-slot:right-content>
-      <login-form type="loginWithCode" />
+      <login-form type="loginWithCode" @pushAuth="smsAuth" />
     </template>
   </double-col-card>
 </template>
@@ -14,12 +14,17 @@
 import { useRouter } from "vue-router";
 import doubleColCard from "../../components/doubleColCard.vue";
 import loginForm from "../../components/loginForm.vue";
+import { loginState } from "../../store/loginStatus";
 
-const submitForm = () => {
-  console.log("login");
+const login = loginState();
+const router = useRouter();
+
+const smsAuth = async (username: string, code: string) => {
+  await login.doSmsLogin(username, code);
+  router.push("/");
 };
 const pushLogin = () => {
-  useRouter().push("/login");
+  router.push("/login");
 };
 </script>
 

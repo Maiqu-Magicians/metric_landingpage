@@ -49,6 +49,9 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from "vue";
+import { loginState } from "../store/loginStatus";
+
+const login = loginState();
 // eslint-disable-next-line no-undef
 const props = defineProps({ type: String });
 // eslint-disable-next-line no-undef
@@ -64,7 +67,7 @@ const totalTime = ref(60);
 const submitForm = () => {
   emits("pushAuth", ruleForm.userid, ruleForm.auth);
 };
-const getCode = () => {
+const getCode = async () => {
   let clock = window.setInterval(() => {
     btn_content.value = totalTime.value + "s后重新发送";
     if (totalTime.value-- < 0) {
@@ -73,6 +76,7 @@ const getCode = () => {
       window.clearInterval(clock);
     }
   }, 1000);
+  await login.doSendSms(ruleForm.userid);
 };
 const postBtnText = props.type == "register" ? "注册" : "登录";
 </script>
