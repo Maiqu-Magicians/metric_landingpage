@@ -22,7 +22,7 @@ const isWeixinBrowser = () => {
 
 if (isWeixinBrowser()) {
   console.log("This is a WX browser");
-  window.open("https://m.maiquer.tech")
+  window.open("https://m.maiquer.tech/products")
 } else {
   console.log("None WX browser");
 }
