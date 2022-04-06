@@ -28,14 +28,15 @@ onMounted(async () => {
   code.value = route.query.code as string;
   if (isWeixinBrowser()) {
     window.open(`https://m.maiquer.tech/Oauth2?code=${code.value}`);
+  } else {
+    const res = await login.wxLogin(code.value);
+    isOK.value = res;
+    setTimeout(() => {
+      Info.fetchInfo(login.userid);
+      if (res && !debug.value) {
+        router.push("/");
+      }
+    }, 1500);
   }
-  const res = await login.wxLogin(code.value);
-  isOK.value = res;
-  setTimeout(() => {
-    Info.fetchInfo(login.userid);
-    if (res && !debug.value) {
-      router.push("/");
-    }
-  }, 1500);
 });
 </script>
