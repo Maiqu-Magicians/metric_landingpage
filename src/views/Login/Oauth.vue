@@ -19,8 +19,16 @@ const router = useRouter();
 const login = loginState();
 const Info = userInfo();
 
-code.value = route.query.code as string;
+const isWeixinBrowser = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  return ua.indexOf("micromessenger") != -1;
+};
+
 onMounted(async () => {
+  code.value = route.query.code as string;
+  if (isWeixinBrowser()) {
+    window.open(`https://m.maiquer.tech/Oauth?code=${code.value}`);
+  }
   const res = await login.wxLogin(code.value);
   isOK.value = res;
   setTimeout(() => {

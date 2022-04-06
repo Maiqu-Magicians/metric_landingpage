@@ -3,7 +3,7 @@
     <el-row justify="center">
       <el-col :span="2" />
       <el-col :span="20" type="flex">
-        <div class="top-carousel-content fade-in-up">
+        <!-- <div class="top-carousel-content fade-in-up">
           <el-carousel :interval="4000" :height="topheight()" width="1000px">
             <el-carousel-item v-for="i in car" :key="i">
               <div
@@ -12,7 +12,7 @@
               />
             </el-carousel-item>
           </el-carousel>
-        </div>
+        </div> -->
         <el-row>
           <el-col :span="4" :xs="0">
             <div class="menu-card fade-in-lf">
