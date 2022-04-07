@@ -39,6 +39,7 @@
 <script lang="ts" setup>
 import axios from "axios";
 import mainFooter from "../components/base/footer.vue";
+
 axios.get("https://api.maiquer.tech/api/evaluation/queryAll").then((res) => {
   console.log(res.data);
 });
@@ -50,6 +51,7 @@ const introduction =
 .home-top-content {
   height: 30vh;
 }
+
 .line {
   width: 0px;
   height: 40vh;
@@ -89,6 +91,7 @@ const introduction =
     opacity: 100%;
   }
 }
+
 @keyframes card-fade-out {
   from {
     opacity: 100%;
@@ -110,11 +113,13 @@ const introduction =
   overflow: hidden;
   justify-content: center;
   margin: 0 8%;
+
   & > * {
     position: relative;
     padding: 0;
     margin: 2.2vh auto;
   }
+
   & > span {
     text-align: center;
     height: 40px;
@@ -128,10 +133,10 @@ const introduction =
 }
 
 .main-card-row {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: absolute;
   width: 100%;
   height: 60vh;
   top: 7vh;
@@ -144,6 +149,7 @@ const introduction =
   height: 7vh;
   font-size: 4.3vh;
   font-family: OPPOSans-M;
+  user-select: none;
   font-weight: 900;
   line-height: 13vh;
   color: #ffffff;
@@ -154,6 +160,7 @@ const introduction =
   position: relative;
   text-align: left;
   top: 14%;
+  user-select: none;
   height: 4vh;
   font-size: 1.9vh;
   font-family: OPPOSans-L;
@@ -162,6 +169,7 @@ const introduction =
   color: #ffffff;
   opacity: 1;
 }
+
 @media only screen and (max-width: 600px) {
   .main-card-content {
     flex-direction: column;

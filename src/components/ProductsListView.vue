@@ -4,7 +4,11 @@
       <div :style="{ backgroundImage: `url('${i.backgd_url}')` }">
         <div class="product-card-label">
           <div>{{ i.name }}</div>
-          <img src="../assets/btn_login.svg" @click="openn(i.target_url)" />
+          <img
+            src="../assets/btn_login.svg"
+            @click="openn(i.target_url)"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -49,6 +53,7 @@ $product_card_width: 200px;
   border-radius: 3vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: all 0.5s;
+
   & > div {
     position: relative;
     margin: 0 0 0 0;
@@ -59,8 +64,9 @@ $product_card_width: 200px;
     background-size: cover;
     border-radius: 3vh;
   }
+
   &:hover {
-    transform: scale(1.2, 1.2) translateY(-5%);
+    transform: scale(1.05, 1.05) translateY(1%);
   }
 }
 
@@ -70,6 +76,7 @@ $product_card_width: 200px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.39);
   margin: 80% 0 0 0;
+
   & > :first-child {
     position: relative;
     margin: 10% auto;
@@ -79,9 +86,13 @@ $product_card_width: 200px;
     @media (max-width: 980px) {
       font-size: 120%;
     }
+    & img:hover {
+      transform: scale(1.2, 1.2);
+    }
     opacity: 1;
     white-space: pre-wrap;
   }
+
   & > img {
     position: relative;
     left: 50%;

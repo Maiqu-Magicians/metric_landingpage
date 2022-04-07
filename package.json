@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vite",
-    "build": "vite build",
-    "lint": "eslint src"
+    "dev": "vite --host=0.0.0.0",
+    "build": "vite build"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^2.2.2",

@@ -1,18 +1,8 @@
 <template>
-  <el-scrollbar height="100%">
+  <el-scrollbar height="100%" class="content">
     <el-row justify="center">
       <el-col :span="2" />
       <el-col :span="20" type="flex">
-        <!-- <div class="top-carousel-content fade-in-up">
-          <el-carousel :interval="4000" :height="topheight()" width="1000px">
-            <el-carousel-item v-for="i in car" :key="i">
-              <div
-                :style="{ backgroundImage: `url('${i} ')` }"
-                class="medium"
-              />
-            </el-carousel-item>
-          </el-carousel>
-        </div> -->
         <el-row>
           <el-col :span="4" :xs="0">
             <div class="menu-card fade-in-lf">
@@ -35,24 +25,21 @@
 </template>
 
 <script lang="ts" setup>
-const car = [
-  "https://img-cdn.dustella.net/car0.webp",
-  "https://img-cdn.dustella.net/car1.webp",
-  "https://img-cdn.dustella.net/car2.webp",
-];
 const classes = {
   全部: "/products/All",
-  职业能力: "products/jobs",
-  压力测试: "products/pressure",
-  性格测试: "products/personality",
-};
-
-const topheight = () => {
-  return document.body.clientWidth < 1200 ? "200px" : "300px";
+  自我: "/products/jobs",
+  群体: "/products/pressure",
+  社会: "/products/personality",
 };
 </script>
 
 <style scoped lang="scss">
+.content {
+  position: relative;
+  top: 10vh;
+  overflow: visible;
+}
+
 .right-content {
   height: 1000vh;
   width: 100%;
@@ -60,17 +47,11 @@ const topheight = () => {
   left: 0;
   right: 0;
 }
+
 .top-carousel-content {
   height: 350px;
   margin: 2vh auto;
   overflow: visible;
-}
-.medium {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  border-radius: 4vh;
 }
 
 .fade-in-lf {
@@ -87,6 +68,7 @@ const topheight = () => {
     opacity: 1;
   }
 }
+
 .fade-in-rt {
   animation: fade-rt;
   animation-duration: 1000ms;
@@ -101,6 +83,7 @@ const topheight = () => {
     opacity: 1;
   }
 }
+
 .fade-in-up {
   animation: fade-up;
   animation-duration: 1000ms;
@@ -122,6 +105,7 @@ const topheight = () => {
     margin: 2vh auto;
   }
 }
+
 .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
@@ -129,6 +113,7 @@ const topheight = () => {
   line-height: 200px;
   margin: 0;
 }
+
 .menu-card {
   width: 100%;
   height: 40vh;
@@ -152,6 +137,7 @@ const topheight = () => {
   width: 100%;
   height: 8vh;
   transition: all 0.5s;
+
   :hover {
     width: 100%;
     // font-weight: bold;
@@ -159,12 +145,15 @@ const topheight = () => {
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
   overflow: visible;
+
   a {
     color: white;
     font-size: 18px;
     text-decoration: none;
   }
+
   ::before {
     display: inline-block;
     height: 100%;
@@ -185,6 +174,7 @@ const topheight = () => {
   content: "";
   vertical-align: middle;
 }
+
 .ele {
   color: #ffffff;
   align-items: center;
