@@ -53,15 +53,15 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "jobs",
-        component: () => import("./components/ProductsListView.vue"),
+        component: () => import("./views/Products/Self.vue"),
       },
       {
         path: "pressure",
-        component: () => import("./components/ProductsListView.vue"),
+        component: () => import("./views/Products/Others.vue"),
       },
       {
         path: "personality",
-        component: () => import("./components/ProductsListView.vue"),
+        component: () => import("./views/Products/Society.vue"),
       },
     ],
   },

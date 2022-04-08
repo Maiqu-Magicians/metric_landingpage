@@ -8,7 +8,7 @@ export default async function getAllProducts(): Promise<Product[]> {
     .then((response) => {
       console.log(response.data.data);
       for (const i of response.data.data) {
-        const p = new Product(i.name, i.Id, i.coverPic, i.realUrl);
+        const p = new Product(i.name, i.Id, i.coverPic, i.realUrl, i.price, i.likeCount, i.type);
         res.push(p);
       }
     }) //

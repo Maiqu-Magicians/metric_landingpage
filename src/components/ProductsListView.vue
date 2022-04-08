@@ -1,7 +1,7 @@
 <template>
   <div class="product-content">
     <div v-for="i of props.listing" class="product-card" :key="i.index">
-      <div :style="{ backgroundImage: `url('${i.backgd_url}')` }">
+      <div :style="{ backgroundImage: `url('${i.backgd_url}')` }" @click="openProduct">
         <div class="product-card-label">
           <div>{{ i.name }}</div>
           <img
@@ -21,10 +21,13 @@ import Product from "../entity/product";
 // eslint-disable-next-line no-undef
 const props = defineProps({
   listing: { type: Array as PropType<Product[]> },
-  isLoading: { type: Boolean },
+  isLoading: { type: Boolean }
 });
 const openn = (url: string) => {
   window.open(url);
+};
+const openProduct = () => {
+  console.log();
 };
 </script>
 
@@ -86,9 +89,11 @@ $product_card_width: 200px;
     @media (max-width: 980px) {
       font-size: 120%;
     }
+
     & img:hover {
       transform: scale(1.2, 1.2);
     }
+
     opacity: 1;
     white-space: pre-wrap;
   }
