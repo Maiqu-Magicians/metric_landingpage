@@ -24,7 +24,7 @@ const route = useRoute();
 const isAuth = () => {
   const r = route.fullPath;
   console.log(r);
-  return r.toString().includes("auth");
+  return r.toString().search("auth") != -1;
 };
 
 if (isWeixinBrowser() && !isAuth()) {
