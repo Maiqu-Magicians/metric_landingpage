@@ -4,7 +4,8 @@
       <div :style="{ backgroundImage: `url('${i.backgd_url}')` }" @click="openProduct">
         <div class="product-card-label">
           <div>{{ i.name }}</div>
-          <img
+          <span v-if="!i.alreadyHave">{{ i.price }}</span>
+          <img v-else
             src="../assets/btn_login.svg"
             @click="openn(i.target_url)"
             alt=""
