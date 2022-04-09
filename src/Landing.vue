@@ -28,8 +28,10 @@ const isAuth = () => {
 };
 
 if (isWeixinBrowser() && !isAuth()) {
-  console.log("This is a WX browser");
-  window.open("https://m.maiquer.tech/products");
+  const r = route.fullPath;
+  console.log(r);
+  console.log(`This is a WX browser${r}`);
+  // window.open("https://m.maiquer.tech/products");
 } else {
   console.log("None WX browser");
 }
