@@ -16,22 +16,22 @@ const UserInfo = userInfo();
 
 // before loading logic, redirect to wx
 
-const isWeixinBrowser = () => {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.indexOf("micromessenger") != -1;
-};
-const route = useRoute();
-const isAuth = (): boolean => {
-  const r = route.path;
-  return r.toString().search("auth") != -1;
-};
-
-if (isWeixinBrowser() && !isAuth()) {
-  console.log(`This is a WX browser`);
-  window.open("https://m.maiquer.tech/products");
-} else {
-  console.log("None WX browser");
-}
+// const isWeixinBrowser = () => {
+//   const ua = navigator.userAgent.toLowerCase();
+//   return ua.indexOf("micromessenger") != -1;
+// };
+// const isAuth = (): boolean => {
+//   const route = useRoute();
+//   const r = route.path;
+//   return r.toString().search("auth") != -1;
+// };
+//
+// if (isWeixinBrowser() && !isAuth()) {
+//   console.log(`This is a WX browser`);
+//   window.open("https://m.maiquer.tech/products");
+// } else {
+//   console.log("None WX browser");
+// }
 
 LoginState.loadfromLocal();
 UserInfo.fetchInfo(LoginState.userid);
