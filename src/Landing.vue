@@ -9,7 +9,7 @@ import MainHeader from "./components/base/header.vue";
 import Backgd from "./components/base/background.vue";
 import { loginState } from "./store/loginStatus";
 import { userInfo } from "./store/userInfo";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 
 const LoginState = loginState();
 const UserInfo = userInfo();
@@ -21,7 +21,7 @@ const isWeixinBrowser = () => {
   return ua.indexOf("micromessenger") != -1;
 };
 const route = useRoute();
-const isAuth = () => {
+const isAuth = (): boolean => {
   const r = route.path;
   return r.toString().search("auth") != -1;
 };
