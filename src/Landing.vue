@@ -22,16 +22,13 @@ const isWeixinBrowser = () => {
 };
 const route = useRoute();
 const isAuth = () => {
-  const r = route.fullPath;
-  console.log(r);
+  const r = route.path;
   return r.toString().search("auth") != -1;
 };
 
 if (isWeixinBrowser() && !isAuth()) {
-  const r = route.fullPath;
-  console.log(r);
-  console.log(`This is a WX browser${r}`);
-  // window.open("https://m.maiquer.tech/products");
+  console.log(`This is a WX browser`);
+  window.open("https://m.maiquer.tech/products");
 } else {
   console.log("None WX browser");
 }
