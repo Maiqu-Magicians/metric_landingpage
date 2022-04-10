@@ -28,7 +28,7 @@ onMounted(async () => {
   console.log(navigator.userAgent.toLowerCase());
   if (isWeixinBrowser()) {
     console.log(code.value);
-    window.open(`https://m.maiquer.tech/oauth2?code=${code.value}`);
+    location.href = `https://m.maiquer.tech/oauth2?code=${code.value}`;
   } else {
     const res = await login.wxLogin(code.value);
     isOK.value = res;
