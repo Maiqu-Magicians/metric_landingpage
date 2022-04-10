@@ -20,13 +20,12 @@ const login = loginState();
 const Info = userInfo();
 
 const isWeixinBrowser = () => {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.indexOf("micromessenger") != -1;
+  return /MicroMessenger/i.test(window.navigator.userAgent);
 };
 
 onMounted(async () => {
   code.value = route.query.code as string;
-  console.log(navigator.userAgent.toLowerCase())
+  console.log(navigator.userAgent.toLowerCase());
   if (isWeixinBrowser()) {
     window.open(`https://m.maiquer.tech/oauth2?code=${code.value}`);
   } else {
