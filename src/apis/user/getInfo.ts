@@ -7,7 +7,7 @@ export default async function getInfo(userid: number): Promise<UserInfo> {
     .get(`https://api.maiquer.tech/api/user/queryById/${userid}`)
     .then((response) => {
       result = new UserInfo(
-        response.data.data.name,
+        response.data.data.nickname,
         response.data.data.id,
         response.data.data.backImg,
         response.data.data.avatar,
