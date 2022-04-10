@@ -26,6 +26,7 @@ const isWeixinBrowser = () => {
 
 onMounted(async () => {
   code.value = route.query.code as string;
+  console.log(navigator.userAgent.toLowerCase())
   if (isWeixinBrowser()) {
     window.open(`https://m.maiquer.tech/oauth2?code=${code.value}`);
   } else {
